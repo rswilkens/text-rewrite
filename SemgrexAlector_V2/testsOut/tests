@@ -1,0 +1,35 @@
+## Le gros chien dort profondément .
+#### OPERATION: insJAUNE
+1	jaune	jaune	ADJ	_	_	4	nmod	_	null
+2	Le	le	DET	_	Number=Sing|Gender=Masc|Definite=Def|PronType=Art	4	det	_	_
+3	gros	gros	ADJ	_	Gender=Masc	4	amod	_	_
+4	chien	chien	NOUN	_	Number=Sing|Gender=Masc	5	nsubj	_	_
+5	dort	dort	VERB	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=3	0	root	_	_
+6	profondément	profondément	ADV	_	_	5	advmod	_	_
+7	.	.	PUNCT	_	_	5	punct	_	_
+
+
+## La fleur bleue pousse silencieusement .
+#### OPERATION: insJAUNE
+1	jaune	jaune	ADJ	_	_	3	nmod	_	null
+2	La	le	DET	_	Number=Sing|Gender=Fem|Definite=Def|PronType=Art	3	det	_	_
+3	fleur	fleur	NOUN	_	Number=Sing|Gender=Fem	5	nsubj	_	_
+4	bleue	bleue	ADJ	_	Number=Sing|Gender=Fem	3	amod	_	_
+5	pousse	pousse	VERB	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=3	0	root	_	_
+6	silencieusement	silencieusement	ADV	_	_	5	advmod	_	_
+7	.	.	PUNCT	_	_	5	punct	_	_
+
+
+## La fleur très claire pousse avec tendresse .
+#### OPERATION: insJAUNE
+1	La	le	DET	_	Number=Sing|Gender=Fem|Definite=Def|PronType=Art	2	det	_	_
+2	fleur	fleur	NOUN	_	Number=Sing|Gender=Fem	5	nsubj	_	_
+3	très	très	ADV	_	_	4	advmod	_	_
+4	claire	clair	ADJ	_	Number=Sing|Gender=Fem	2	amod	_	_
+5	pousse	pousse	VERB	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=3	0	root	_	_
+6	jaune	jaune	ADJ	_	_	8	nmod	_	null
+7	avec	avec	ADP	_	_	8	case	_	_
+8	tendresse	tendresse	NOUN	_	Number=Sing|Gender=Fem	5	obl:mod	_	_
+9	.	.	PUNCT	_	_	5	punct	_	_
+
+

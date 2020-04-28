@@ -1,0 +1,23 @@
+1	Le	le	DET	_	Definite=Def|Gender=Masc|Number=Sing|PronType=Art	3	det	_	_
+2	gros	gros	ADJ	_	Gender=Masc	3	amod	_	_
+3	chien	chien	NOUN	_	Gender=Masc|Number=Sing	4	nsubj	_	_
+4	dort	dort	VERB	_	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	_	_
+5	profondément	profondément	ADV	_	_	4	advmod	_	_
+6	.	.	PUNCT	_	_	4	punct	_	_
+
+1	La	le	DET	_	Definite=Def|Gender=Fem|Number=Sing|PronType=Art	2	det	_	_
+2	fleur	fleur	NOUN	_	Gender=Fem|Number=Sing	4	nsubj	_	_
+3	bleue	bleue	ADJ	_	Gender=Fem|Number=Sing	2	amod	_	_
+4	pousse	pousse	VERB	_	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	_	_
+5	silencieusement	silencieusement	ADV	_	_	4	advmod	_	_
+6	.	.	PUNCT	_	_	4	punct	_	_
+
+1	La	le	DET	_	Definite=Def|Gender=Fem|Number=Sing|PronType=Art	2	det	_	_
+2	fleur	fleur	NOUN	_	Gender=Fem|Number=Sing	5	nsubj	_	_
+3	très	très	ADV	_	_	4	advmod	_	_
+4	claire	clair	ADJ	_	Gender=Fem|Number=Sing	2	amod	_	_
+5	pousse	pousse	VERB	_	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	0	root	_	_
+6	avec	avec	ADP	_	_	7	case	_	_
+7	tendresse	tendresse	NOUN	_	Gender=Fem|Number=Sing	5	obl:mod	_	_
+8	.	.	PUNCT	_	_	5	punct	_	_
+

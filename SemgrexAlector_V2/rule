@@ -1,0 +1,11 @@
+pipeline ins debug
+
+operation insJAUNE begin FIRST
+search sent : "{tag:NOUN}=n"
+
+
+sent = insert n 1 left '1;jaune;jaune;ADJ;;0;nmod' from sent
+
+save sent
+
+operation end
