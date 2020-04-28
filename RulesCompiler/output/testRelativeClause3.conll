@@ -1,0 +1,21 @@
+## La mésange a rejoint le nid où ses petits l' attendaient .
+#### OPERATION: relativeclauseDONT
+#### OPERATION: relativeClauseOU
+###### La mésange a rejoint le nid .
+1	La	le	DET	_	Number=Sing|Gender=Fem|Definite=Def|PronType=Art	2	det	_	_
+2	mésange	mésange	NOUN	_	Number=Sing|Gender=Fem	4	nsubj	_	_
+3	a	avoir	AUX	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=3	4	aux	_	_
+4	rejoint	rejoint	VERB	_	Tense=Past|Number=Sing|VerbForm=Part|Gender=Masc	0	root	_	_
+5	le	le	DET	_	Number=Sing|Gender=Masc|Definite=Def|PronType=Art	6	det	_	_
+6	nid	nid	NOUN	_	Number=Sing|Gender=Masc	4	obj	_	_
+7	.	.	PUNCT	_	_	4	punct	_	_
+
+###### ses petits l' attendaient dans le nid
+1	ses	son	DET	_	Number=Plur|Poss=Yes	2	det	_	_
+2	petits	petit	ADJ	_	Number=Plur|Gender=Masc	4	nsubj	_	_
+3	l'	le	PRON	_	Number=Sing|Person=3	4	obj	_	_
+4	attendaient	attendre	VERB	_	Tense=Imp|Mood=Ind|Number=Plur|VerbForm=Fin|Person=3	0	aclrelcl	_	_
+5	dans	dans	ADP	_	_	7	case	_	_
+6	ce	ce	DET	_	Number=Sing|Gender=Masc|PronType=Dem	7	det	_	_
+7	nid	nid	NOUN	_	Number=Sing|Gender=Masc	4	obj	_	_
+

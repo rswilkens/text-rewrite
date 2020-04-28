@@ -1,0 +1,104 @@
+## L' algorithme de Hobbs ( 1978 ) est une des premières approches à la résolution de le pronom , qui a permis d' atteindre à l' époque la fiabilité exceptionnellement élevée .
+#### OPERATION: relativeClauseOU
+## il fait beau .
+#### OPERATION: relativeClauseOU
+## L' algorithme de Hobbs ( 1978 ) est une des premières approches à la résolution de le pronom .
+#### OPERATION: relativeClauseOU
+## Cette résolution de le pronom a permis d' atteindre à l' époque la fiabilité exceptionnellement élevée .
+#### OPERATION: relativeClauseOU
+## Le « groupe pronominal » est un syntagme dont le noyau est un pronom .
+#### OPERATION: relativeClauseOU
+## Le « groupe pronominal » est un syntagme .
+#### OPERATION: relativeClauseOU
+## Le noyau de ce syntagme est un pronom .
+#### OPERATION: relativeClauseOU
+## La première référence que j' ai choisi est l' article sur Wikipédia .
+#### OPERATION: relativeClauseOU
+## J' ai choisi la première référence .
+#### OPERATION: relativeClauseOU
+## Cette première référence est l' article sur Wikipédia .
+#### OPERATION: relativeClauseOU
+## L' extrait que nous allons étudier parle finalement de la déception d' Emma ...
+#### OPERATION: relativeClauseOU
+## Nous allons étudier l' extrait .
+#### OPERATION: relativeClauseOU
+## Cet extrait parle finalement de la déception d' Emma ...
+#### OPERATION: relativeClauseOU
+## Ici , il fait toujours beau .
+#### OPERATION: relativeClauseOU
+## Plusieurs vols ont été commis par l' homme qui s' enfuit .
+#### OPERATION: relativeClauseOU
+## Les moniteurs sont gentils , car ils les consolent .
+#### OPERATION: relativeClauseOU
+## Ils leur demandent s' ils préfèrent rester à le camp , ou venir en promenade .
+#### OPERATION: relativeClauseOU
+## Je n' aime ni le lait ni le fromage .
+#### OPERATION: relativeClauseOU
+## C' est elle qui le voit .
+#### OPERATION: relativeClauseOU
+## C' est lui qu' elle voit .
+#### OPERATION: relativeClauseOU
+## C' est de lui qu' il leur a parlé .
+#### OPERATION: relativeClauseOU
+## C' est de lui qu' il a parlé très brevement avec elle .
+#### OPERATION: relativeClauseOU
+## C' est là que nous allons .
+#### OPERATION: relativeClauseOU
+## Lucile a dit ' Je reviendrai demain . '
+#### OPERATION: relativeClauseOU
+## Cette voiture rouge , qui appartient à Paul , est cassée .
+#### OPERATION: relativeClauseOU
+## La fenêtre qui donne sur la rue est ouverte .
+#### OPERATION: relativeClauseOU
+## Il ne reconnaît plus ce paysage qu' il a souvent peint .
+#### OPERATION: relativeClauseOU
+## Le volet que tu as repeint est sec .
+#### OPERATION: relativeClauseOU
+## L' homme dont je t' ai parlé arrive .
+#### OPERATION: relativeClauseOU
+## La mésange a rejoint le nid où ses petits l' attendaient .
+#### OPERATION: relativeClauseOU
+###### La mésange a rejoint le nid .
+1	La	le	DET	_	Number=Sing|Gender=Fem|Definite=Def|PronType=Art	2	det	_	_
+2	mésange	mésange	NOUN	_	Number=Sing|Gender=Fem	4	nsubj	_	_
+3	a	avoir	AUX	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=3	4	aux	_	_
+4	rejoint	rejoint	VERB	_	Tense=Past|Number=Sing|VerbForm=Part|Gender=Masc	0	root	_	_
+5	le	le	DET	_	Number=Sing|Gender=Masc|Definite=Def|PronType=Art	6	det	_	_
+6	nid	nid	NOUN	_	Number=Sing|Gender=Masc	4	obj	_	_
+7	.	.	PUNCT	_	_	4	punct	_	_
+
+###### ses petits l' attendaient dans le nid
+1	ses	son	DET	_	Number=Plur|Poss=Yes	2	det	_	_
+2	petits	petit	ADJ	_	Number=Plur|Gender=Masc	4	nsubj	_	_
+3	l'	le	PRON	_	Number=Sing|Person=3	4	obj	_	_
+4	dans	dans	ADP	_	_	6	case	_	_
+	_	_
+6	ce	ce	DET	_	Number=Sing|Gender=Masc|PronType=Dem	7	det	_	_
+7	nid	nid	NOUN	_	Number=Sing|Gender=Masc	4	obj	_	_
+
+## J' ai acheté la table à laquelle il a mangé .
+#### OPERATION: relativeClauseOU
+## J' ai acheté la table sur laquelle tu as posé les fruits .
+#### OPERATION: relativeClauseOU
+## J' ai acheté la table dans laquelle tu as percé un trou .
+#### OPERATION: relativeClauseOU
+## J' ai acheté la table de laquelle tu as extrait le bois .
+#### OPERATION: relativeClauseOU
+## J' ai acheté la table où il a mangé .
+#### OPERATION: relativeClauseOU
+###### J' ai acheté la table .
+1	J'	il	PRON	_	Number=Sing|Person=1	3	nsubj	_	_
+2	ai	avoir	AUX	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=1	3	aux	_	_
+3	acheté	acheter	VERB	_	Tense=Past|Number=Sing|VerbForm=Part|Gender=Masc	0	root	_	_
+4	la	le	DET	_	Number=Sing|Gender=Fem|Definite=Def|PronType=Art	5	det	_	_
+5	table	table	NOUN	_	Number=Sing|Gender=Fem	3	obj	_	_
+6	.	.	PUNCT	_	_	3	punct	_	_
+
+###### il a mangé dans la table
+1	il	il	PRON	_	Number=Sing|Gender=Masc|Person=3	3	nsubj	_	_
+2	a	avoir	AUX	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=3	3	aux	_	_
+3	mangé	manger	VERB	_	Tense=Past|Number=Sing|VerbForm=Part|Gender=Masc	0	acl:relcl	_	_
+4	dans	dans	ADP	_	_	6	case	_	_
+5	ce	ce	DET	_	Number=Sing|Gender=Fem|PronType=Dem	6	det	_	_
+6	table	table	NOUN	_	Number=Sing|Gender=Fem	3	obj	_	_
+
