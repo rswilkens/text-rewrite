@@ -1,0 +1,104 @@
+pipeline relativeclause debug
+
+operation relativeclauseQUI1 begin FIRST
+search sent: "({tag:VERB}=verb1 == {$}) >/(.*)obj(.*)/ ( {}=subj >/acl(.*)/ ( {tag:VERB}=verb2 >nsubj {lemma:qui;conllfeats:/PronType=Rel/}=qui))"
+
+
+sent = delete qui from sent
+
+sent1, sent2 = split subj from sent
+sentSubj, sent2 = split verb2 from sent2
+
+sentSubjC = copy sentSubj
+sent1 = insert verb1 0 sentSubjC from sent1
+sentSubjC = copy sentSubj
+sent2 = insert verb2 -0* sentSubjC from sent2
+
+sent2 = insert verb2 +0* '1;0x002E;0x002E;;;0;punct' from sent2
+
+save sent1, sent2
+
+
+	#autre racine et nsubj, comma
+search sent: "[{tag:ADJ}=verb1|{tag:NOUN}=verb1] >nsubj ( {}=subj >/acl(.*)/ ( {tag:VERB}=verb2 >nsubj {lemma:qui;conllfeats:/PronType=Rel/}=qui)):{word:/,/}=comma.{}=qui"
+
+sent = delete comma,qui from sent
+
+sent1,sent2 = split verb2 from sent
+
+
+sent1,sentSubj=split subj from sent1
+
+subjC=copy sentSubj
+
+sent1 = insert verb1 -0* subjC from sent1
+
+subjC=copy sentSubj
+
+sent2 = insert verb2 -0* subjC from sent2
+
+save sent1, sent2
+
+	#autre racine et nsubj
+search sent: "[{tag:ADJ}=verb1|{tag:NOUN}=verb1] >nsubj ( {}=subj >/acl(.*)/ ( {tag:VERB}=verb2 >nsubj {lemma:qui;conllfeats:/PronType=Rel/}=qui))"
+
+sent = delete qui from sent
+
+sent1,sent2 = split verb2 from sent
+
+
+sent1,sentSubj=split subj from sent1
+
+subjC=copy sentSubj
+
+sent1 = insert verb1 -0* subjC from sent1
+
+subjC=copy sentSubj
+
+sent2 = insert verb2 -0* subjC from sent2
+
+save sent1, sent2
+
+
+	#racine verbe et nsubj
+search sent: "{tag:VERB}=verb1 >nsubj ( {}=subj >/acl(.*)/ ( {tag:VERB}=verb2 >nsubj {lemma:qui;conllfeats:/PronType=Rel/}=qui))"
+
+sent = delete qui from sent
+
+sent1,sent2 = split verb2 from sent
+
+
+sent1,sentSubj=split subj from sent1
+
+subjC=copy sentSubj
+
+sent1 = insert verb1 -0* subjC from sent1
+
+subjC=copy sentSubj
+
+sent2 = insert verb2 -0* subjC from sent2
+
+save sent1, sent2
+
+
+operation end
+
+operation relativeclauseQUE1 begin FIRST
+	#verb racine et sujet et un verbe de la relative avec obj que
+search sent: "({tag:VERB}=verb1 == {$}) >/(.*)subj(.*)/ ( {}=subj >/acl(.*)/ ( {tag:VERB}=verb2 >obj {lemma:que;conllfeats:/PronType=Rel/}=que))"
+
+sent = delete que from sent
+
+sent1, sent2 = split subj from sent
+sentSubj, sent2 = split verb2 from sent2
+
+sentSubjC = copy sentSubj
+sent1 = insert verb1 -0* sentSubjC from sent1
+
+sentSubjC = copy sentSubj
+sent2 = insert verb2 +0* sentSubjC from sent2
+
+save sent1, sent2
+
+
+operation end

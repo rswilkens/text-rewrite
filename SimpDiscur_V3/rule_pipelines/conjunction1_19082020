@@ -1,0 +1,410 @@
+pipeline conjunction debug
+
+
+operation conjMAIS begin FIRST
+
+	#Comma
+search sent : "{tag:VERB}=el2 > cc {lemma:mais}=mais < {tag:VERB}=el1 : {word:/,/}=comma.{}=mais"
+
+sent = delete comma from sent
+
+sent1, sent2 = split el2 from sent
+sent2 = replace el2(DEPENDENCY) '1;;;;;0;root' from sent2
+
+save sent1, sent2
+
+
+	#Else
+search sent : "{tag:VERB}=el2 > cc {lemma:mais}=mais < {tag:VERB}=el1"
+
+sent1, sent2 = split el2 from sent
+sent2 = replace el2(DEPENDENCY) '1;;;;;0;root' from sent2
+
+save sent1, sent2
+
+operation end
+
+
+operation conjOU begin FIRST
+
+	#Participes and comma
+search sent : "{tag:VERB;conllfeats:/VerbForm=Part/}=el2 ?> /.subj/ {}=subj2 ?>aux {}=aux2 >cc {lemma:ou}=ou <conj ({tag:VERB;conllfeats:/VerbForm=Part/}=el1 >aux {}=aux1 >/.subj/{tag:PRON;lemma:il}=subj1) : {word:/,/}=comma.{}=ou"
+
+sent = delete comma from sent
+sent1, sent2 = split el2 from sent
+sentC = copy sent1
+sent2 = replace el2(DEPENDENCY) '1;;;;;0;root' from sent2
+
+if subj2 begin
+	sent3 = copy sent2
+else
+	sent3 = copy sent2
+	if aux2 begin
+		sent3 = insert sent2  1 right subj1 from sent2
+	else
+		sent3 = insert sent2  1 right aux1 from sent2
+		sent3 = insert sent3  1 right subj1 from sent3
+	end
+end	
+
+save sentC, sent3
+
+
+	#Participes and comma and subjGN
+search sent : "{tag:VERB;conllfeats:/VerbForm=Part/}=el2 ?> /.subj/ {}=subj2 ?>aux {}=aux2 >cc {lemma:ou}=ou <conj ({tag:VERB;conllfeats:/VerbForm=Part/}=el1 >aux {}=aux1 >/.subj/{tag:NOUN}=subj1 ?>det {}=det) : {word:/,/}=comma.{}=ou"
+
+sent = delete comma from sent
+sent1, sent2 = split el2 from sent
+sentC = copy sent1
+sent2 = replace el2(DEPENDENCY) '1;;;;;0;root' from sent2
+
+if subj2 begin
+	sent3 = copy sent2
+else
+	if aux2 begin
+		sent3 = insert sent2  1 right subj1 from sent2
+	else
+		sent3 = insert sent2  1 right aux1 from sent2
+		sent3 = insert sent3  1 right subj1 from sent3
+	end
+end	
+
+save sentC, sent3
+
+
+	#Participes
+search sent : "{tag:VERB;conllfeats:/VerbForm=Part/}=el2 ?> /.subj/ {}=subj2 ?>aux {}=aux2 >cc {lemma:ou}=ou <conj ({tag:VERB;conllfeats:/VerbForm=Part/}=el1 >aux {}=aux1 >/.subj/{tag:PRON;lemma:il}=subj1)"
+
+sent1, sent2 = split el2 from sent
+
+sentC = copy sent1
+sent2 = replace el2(DEPENDENCY) '1;;;;;0;root' from sent2
+
+if subj2 begin 
+	sent3 = copy sent2
+else
+	if aux2 begin
+		sent3 = insert sent2 1 right subj1 from sent2
+	else
+		sent3 = insert sent2  1 right aux1 from sent2
+		sent3 = insert sent3 1 right subj1 from sent3
+	end
+end	
+
+save sentC, sent3
+
+
+	#Participes GN
+search sent : "{tag:VERB;conllfeats:/VerbForm=Part/}=el2 ?> /.subj/ {}=subj2 ?>aux {}=aux2 >cc {lemma:ou}=ou <conj ({tag:VERB;conllfeats:/VerbForm=Part/}=el1 >aux {}=aux1 >/.subj/{tag:NOUN}=subj1 ?>det {}=det)"
+
+sent1, sent2 = split el2 from sent
+
+sent1 = insert sent1 1 right subj1 from sent1
+
+sentC = copy sent1
+sent2 = replace el2(DEPENDENCY) '1;;;;;0;root' from sent2
+
+if subj2 begin
+	sent3 = copy sent2
+else
+	if aux2 begin
+		sent3 = insert sent2 1 right subj1 from sent2
+	else
+		sent3 = insert sent2  1 right aux1 from sent2
+		sent3 = insert sent3 1 right subj1 from sent3
+	end
+end	
+
+save sentC, sent3
+
+	#simple verbs and comma
+search sent : "{tag:VERB;conllfeats:/VerbForm=Fin/}=el2 ?> /.subj/ {}=subj2 ?>aux {}=aux2 >cc {lemma:ou}=ou <conj ({tag:VERB}=el1 ?>aux {}=aux1 >/.subj/{tag:PRON;lemma:il}=subj1) : {word:/,/}=comma.{}=ou"
+
+sent = delete comma from sent
+sent1, sent2 = split el2 from sent
+sentC = copy sent1
+sent2 = replace el2(DEPENDENCY) '1;;;;;0;root' from sent2
+
+if subj2 begin
+	sent3 = copy sent2
+else
+	sent3 = copy sent2
+	if aux2 begin
+		sent3 = insert sent2  1 right subj1 from sent2
+	else
+             if aux1 begin
+		sent3 = insert sent2  1 right aux1 from sent2
+	     end
+		sent3 = insert sent3  1 right subj1 from sent3
+	end
+end	
+
+save sentC, sent3
+
+	#simple verbs and pron
+search sent : "{tag:VERB;conllfeats:/VerbForm=Fin/}=el2 ?> /.subj/ {}=subj2 ?>aux {}=aux2 >cc {lemma:ou}=ou <conj ({tag:VERB;conllfeats:/VerbForm=Fin/}=el1 ?>aux {}=aux1 >/.subj/{tag:PRON;lemma:il}=subj1)"
+
+sent1, sent2 = split el2 from sent
+sentC = copy sent1
+sent2 = replace el2(DEPENDENCY) '1;;;;;0;root' from sent2
+
+if subj2 begin
+	sent3 = copy sent2
+else
+	sent3 = copy sent2
+	if aux2 begin
+		sent3 = insert sent2  1 right subj1 from sent2
+	else
+             if aux1 begin
+		sent3 = insert sent2  1 right aux1 from sent2
+	     end
+		sent3 = insert sent3  1 right subj1 from sent3
+	end
+end	
+
+save sentC, sent3
+
+	#simple verbs and comma and GNsubj
+search sent : "{tag:VERB;conllfeats:/VerbForm=Fin/}=el2 ?> /.subj/ {}=subj2 ?>aux {}=aux2 >cc {lemma:ou}=ou <conj ({tag:VERB;conllfeats:/VerbForm=Fin/}=el1 ?>aux {}=aux1 >/.subj/{tag:NOUN}=subj1 ?>det {}=det) : {word:/,/}=comma.{}=ou"
+
+sent = delete comma from sent
+sent1, sent2 = split el2 from sent
+sentC = copy sent1
+sent2 = replace el2(DEPENDENCY) '1;;;;;0;root' from sent2
+
+if subj2 begin
+	sent3 = copy sent2
+else
+	sent3 = copy sent2
+	if aux2 begin
+		sent3 = insert sent2  1 right subj1 from sent2
+	else
+	if aux1 begin
+		sent3 = insert sent2  1 right aux1 from sent2
+	end
+		sent3 = insert sent3  1 right subj1 from sent3
+	end
+end	
+
+save sentC, sent3
+
+	#simple verbs and GNsubj
+search sent : "{tag:VERB;conllfeats:/VerbForm=Fin/}=el2 ?> /.subj/ {}=subj2 ?>aux {}=aux2 >cc {lemma:ou}=ou <conj ({tag:VERB;conllfeats:/VerbForm=Fin/}=el1 ?>aux {}=aux1 >/.subj/{tag:NOUN}=subj1 ?>det {}=det)"
+
+sent1, sent2 = split el2 from sent
+sentC = copy sent1
+sent2 = replace el2(DEPENDENCY) '1;;;;;0;root' from sent2
+
+if subj2 begin
+	sent3 = copy sent2
+else
+	if aux2 begin
+		sent3 = insert sent2  1 right subj1 from sent2
+	else
+	if aux1 begin
+		sent3 = insert sent2  1 right aux1 from sent2
+	end
+		sent3 = insert sent3  1 right subj1 from sent3
+	end
+end	
+
+save sentC, sent3
+
+operation end
+
+
+operation conjET begin FIRST
+
+
+	#Participes and comma, sujet pron
+search sent : "{tag:VERB;conllfeats:/VerbForm=Part/}=el2 ?> /.subj/ {}=subj2 ?>aux {}=aux2 >cc {lemma:et}=et <conj ({tag:VERB;conllfeats:/VerbForm=Part/}=el1 >aux {}=aux1 >/.subj/{tag:PRON;lemma:il}=subj1) : {word:/,/}=comma.{}=et"
+
+sent = delete comma, et from sent
+sent1, sent2 = split el2 from sent
+sentC = copy sent1
+
+sent2 = replace el2(DEPENDENCY) '1;;;;;0;root' from sent2
+
+if subj2 begin
+	sent3 = copy sent2
+else
+	if aux2 begin
+		sent3 = insert sent2 -0* subj1 from sent2
+	else
+		sent3 = insert sent2 -0* aux1 from sent2
+		sent3 = insert sent3 -0* subj1 from sent3
+	end
+end	
+
+
+save sentC, sent3
+
+
+
+	#Participes et sujet1 pron
+search sent : "{tag:VERB;conllfeats:/VerbForm=Part/}=el2 ?> /.subj/ {}=subj2 ?>aux {}=aux2 >cc {lemma:et}=et <conj ({tag:VERB;conllfeats:/VerbForm=Part/}=el1 >aux {}=aux1 >/.subj/{tag:PRON;lemma:il}=subj1)"
+
+sent = delete et from sent
+sent1, sent2 = split el2 from sent
+sentC = copy sent1
+sent2 = replace el2(DEPENDENCY) '1;;;;;0;root' from sent2
+
+if subj2 begin
+	sent3 = copy sent2
+else
+	if aux2 begin
+		sent3 = insert sent2 -0* subj1 from sent2
+	else
+		sent3 = insert sent2 -0* aux1 from sent2
+		sent3 = insert sent3 -0* subj1 from sent3
+	end
+end
+
+save sentC, sent3
+
+
+	#Else PRON comma
+search sent : "{tag:VERB;conllfeats:/VerbForm=Fin/}=el2 ?> /.subj/ {}=subj2 >cc {lemma:et}=et <conj ({tag:VERB;conllfeats:/VerbForm=Fin/}=el1 >/.subj/{tag:PRON;lemma:il}=subj1 ):{word:/,/}=comma.{}=et"
+
+sent = delete comma,et from sent
+sent1, sent2 = split el2 from sent
+sentC = copy sent1
+sent2 = replace el2(DEPENDENCY) '1;;;;;0;root' from sent2
+if subj2 begin
+	sent3 = copy sent2
+else
+		sent3 = insert sent2 -0* subj1 from sent2
+end
+
+save sentC, sent3
+
+
+	#Else PRON
+search sent : "{tag:VERB;conllfeats:/VerbForm=Fin/}=el2 ?> /.subj/ {}=subj2 >cc {lemma:et}=et <conj ({tag:VERB;conllfeats:/VerbForm=Fin/}=el1 >/.subj/{tag:PRON;lemma:il}=subj1 )"
+
+sent = delete et from sent
+sent1, sent2 = split el2 from sent
+
+sentC = copy sent1
+sent2 = replace el2(DEPENDENCY) '1;;;;;0;root' from sent2
+if subj2 begin
+	sent3 = copy sent2
+else
+		sent3 = insert sent2 -0* subj1 from sent2
+end
+save sentC, sent3
+
+
+	#Participes and comma
+search sent : "{tag:VERB;conllfeats:/VerbForm=Part/}=el2 ?> /.subj/ {}=subj2 ?>aux {}=aux2 >cc {lemma:et}=et <conj ({tag:VERB;conllfeats:/VerbForm=Part/}=el1 >aux {}=aux1 >/.subj/({tag:NOUN}=subj1 ?>det {}=det)) : {word:/,/}=comma.{}=et"
+
+sent = delete comma, et from sent
+sent1, sent2 = split el2 from sent
+sentC = copy sent1
+sent2 = replace el2(DEPENDENCY) '1;;;;;0;root' from sent2
+
+sent1, subjSent = split subj1 from sent1
+subjSentCP = copy subjSent
+sent1 = insert sent1 -0 subjSentCP from sent1
+
+if subj2 begin
+	sent3 = copy sent2
+else
+	if aux2 begin
+		sent3 = insert sent2 -0* subjSentCP from sent2
+	else
+		sent3 = insert sent2 -0* aux1 from sent2
+		sent3 = insert sent3 -0* subjSentCP from sent3
+	end
+end	
+
+if det begin
+sent3 = insert subjSentCP 0 det from sent3
+end
+
+save sentC, sent3
+
+
+
+	#Participes GN
+search sent : "{tag:VERB;conllfeats:/VerbForm=Part/}=el2 ?> /.subj/ {}=subj2 ?>aux {}=aux2 >cc {lemma:et}=et <conj ({tag:VERB;conllfeats:/VerbForm=Part/}=el1 >aux {}=aux1 >/.subj/ ({tag:NOUN}=subj1 ?>det {}=det))"
+
+sent = delete et from sent
+sent1, sent2 = split el2 from sent
+sent2 = replace el2(DEPENDENCY) '1;;;;;0;root' from sent2
+
+sent1, subjSent = split subj1 from sent1
+subjSentCP = copy subjSent
+sent1 = insert sent1 -0 subjSentCP from sent1
+
+if subj2 begin
+	sent3 = copy sent2
+else
+	if aux2 begin
+		sent3 = insert sent2 -0* subjSentCP from sent2
+	else
+		sent3 = insert sent2 -0* aux1 from sent2
+		sent3 = insert sent3 -0* subjSentCP from sent3
+	end
+end	
+
+if det begin
+subjSentCP = copy subjSent
+sent3 = insert subjSentCP 0 det from sent3
+end
+
+save sent1, sent3
+
+
+
+	#Else
+search sent : "{tag:VERB;conllfeats:/VerbForm=Fin/}=el2 ?> /.subj/ {}=subj2 >cc {lemma:et}=et <conj ({tag:VERB;conllfeats:/VerbForm=Fin/}=el1 >/.subj/({tag:NOUN}=subj1 ?>det {}=det))"
+
+sent = delete et from sent
+sent1, sent2 = split el2 from sent
+sentC = copy sent1
+sent2 = replace el2(DEPENDENCY) '1;;;;;0;root' from sent2
+
+sent1, subjSent = split subj1 from sent1
+subjSentCP = copy subjSent
+sent1 = insert sent1 -0 subjSentCP from sent1
+
+if subj2 begin
+	sent3 = copy sent2
+else
+	sent3 = insert sent2 -0* subjSentCP from sent2
+
+
+end	
+
+
+
+save sentC, sent3
+
+
+operation end
+
+
+operation conjOR begin FIRST
+
+	#Comma
+search sent : "{tag:VERB}=el2 > cc {lemma:or}=or < {tag:VERB}=el1 : {word:/,/}=comma.{}=or"
+
+sent = delete comma from sent
+
+sent1, sent2 = split el2 from sent
+sent2 = insert sent2 1 right '1;0x002C;0x002C;PUNCT;;0;punct' from sent2 
+sent2 = replace el2(DEPENDENCY) '1;;;;;0;root' from sent2
+
+save sent1, sent2
+
+	#Else
+search sent : "{tag:VERB}=el2 > cc {lemma:or}=or < {tag:VERB}=el1"
+
+sent1, sent2 = split el2 from sent
+sent2 = insert sent2 1 right '1;0x002C;0x002C;PUNCT;;0;punct' from sent2 
+sent2 = replace el2(DEPENDENCY) '1;;;;;0;root' from sent2
+
+save sent1, sent2
+
+operation end

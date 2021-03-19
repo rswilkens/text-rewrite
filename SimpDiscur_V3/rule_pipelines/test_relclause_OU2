@@ -1,0 +1,113 @@
+pipeline relativeclause debug
+
+operation relativeClauseOU begin FIRST
+
+
+search sent: "{tag:VERB}=verb1 >>obj ({tag:NOUN}=obj ?>det {}=det >conj {tag:ADJ}=conjn) ?> {tag:ADP}=prep >/acl(.*)/ ( [{tag:VERB}=verb2|{tag:ADJ}=verb2] >>iobj ({lemma:/où/;tag:PRON;conllfeats:/PronType=Rel/}=ou ?>case {tag:ADP}=prepou )) : {$} ?>punct {tag:PUNCT}=punct"
+
+sent = delete ou from sent
+sent1, sent2 = split obj from sent
+sentObj, sent2 = split verb2 from sent2
+
+sentObjC = copy sentObj
+if punct begin
+	sent1 = insert verb1 0*   sentObjC from sent1
+else
+	sent1 = insert verb1 +0* sentObjC from sent1
+end
+
+if prep begin
+	sent1 = insert verb1 +0* sentObjC from sent1
+end
+
+
+if prepou begin
+	sentObj = insert obj -0* prepou from sentObj
+else
+	sentObj = insert obj -0* '1;dans;dans;ADP;;0;case' from sentObj 
+end	
+
+sent2 = insert verb2 +0* sentObj from sent2
+
+if det begin
+	sent2 = replace det (FORM, LEMMA, FEATS) '1;ce;ce;;Definite=-|PronType=Dem;0;' from sent2
+end
+
+
+if punct begin
+	sent1 = move verb1 0* punct from sent1
+
+end
+
+
+save sent1, sent2
+
+
+search sent: "{tag:VERB}=verb1 >/obl(.*)/ ({tag:NOUN}=obj ?>det {}=det) ?> {tag:ADP}=prep >/acl(.*)/ ( {tag:VERB}=verb2 >>iobj ({lemma:/où/;tag:PRON;conllfeats:/PronType=Rel/}=ou ?>case {tag:ADP}=prepou )) : {$} ?>punct {tag:PUNCT}=punct"
+
+sent = delete ou from sent
+sent1, sent2 = split obj from sent
+sentObj, sent2 = split verb2 from sent2
+
+sentObjC = copy sentObj
+if punct begin
+	sent1 = insert verb1 0*   sentObjC from sent1
+else
+	sent1 = insert verb1 +0* sentObjC from sent1
+end
+
+if prep begin
+	sent1 = insert verb1 +0* sentObjC from sent1
+end
+
+
+if prepou begin
+	sentObj = insert obj -0* prepou from sentObj
+else
+	sentObj = insert obj -0* '1;dans;dans;ADP;;0;case' from sentObj 
+end	
+
+sent2 = insert verb2 +0* sentObj from sent2
+
+if det begin
+	sent2 = replace det (FORM, LEMMA, FEATS) '1;ce;ce;;Definite=-|PronType=Dem;0;' from sent2
+end
+
+
+if punct begin
+	sent1 = move verb1 0* punct from sent1
+
+end
+
+
+save sent1, sent2
+
+
+search sent: "{tag:VERB}=verb1 >/obl(.*)/ (({tag:NOUN}=obj ?>det {}=det) ?> {tag:ADP}=prep >/acl(.*)/ ({tag:VERB}=verb2 >>iobj {lemma:/où/;tag:PRON;conllfeats:/PronType=Rel/}=ou ?>case {tag:ADP}=prepou)) : {$} ?>punct {tag:PUNCT}=punct"
+
+sent = delete ou from sent
+sent1, sent2 = split obj from sent
+sentObj, sent2 = split verb2 from sent2
+
+sentObjC = copy sentObj
+
+
+if prep begin
+	sent1 = insert verb1 +0* sentObjC from sent1
+end
+
+
+sent2 = insert verb2 +0* sentObj from sent2
+
+if det begin
+	sent2 = replace det (FORM, LEMMA, FEATS) '1;ce;ce;;Definite=-|PronType=Dem;0;' from sent2
+end
+
+if punct begin
+	sent1 = move verb1 0* punct from sent1
+
+end
+
+save sent1, sent2
+
+operation end

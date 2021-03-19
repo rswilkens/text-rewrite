@@ -1,0 +1,15 @@
+pipeline passive debug
+
+operation passive begin FIRST
+
+search sent : "{$}=verb > {tag:NOUN} > {tag:DET}=det"
+
+
+sent = delete det from sent
+verb = replace verb (FORM, LEMMA) '1;xxxxx;xxxxx;;;0;' from sent
+
+save sent
+
+
+operation end
+

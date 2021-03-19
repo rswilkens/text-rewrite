@@ -1,0 +1,16 @@
+La petite fille a sauté sur le chien paresseux . 
+je t' ai parlé hier de ce petite fille 
+Les petites filles ont sautés sur les chiens paresseux . 
+je t' ai parlées hier de ce petites filles 
+Le renard rapide brun a sauté sur le chien paresseux . 
+je connais le prénom de ce renard rapide brun 
+Les renards rapides bruns ont sauté sur les chiens paresseux . 
+je connais les prénoms de ce renards rapides bruns 
+L' éléphant gris a bu de l' eau . 
+je connais la taille de ce éléphant gris 
+L' arbre pousse ici . 
+je connais le type de ce arbre 
+L' abeille jaune vole ici . 
+je connais la provenance de ce abeille jaune 
+UN arbre dont je connais un type est vert . 
+UNE abeille jaune dont je connais une provenance est ici . 

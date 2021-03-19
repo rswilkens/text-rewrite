@@ -1,0 +1,47 @@
+pipeline participe debug
+
+
+operation participe begin FIRST
+
+
+
+
+	#Comma before and pres participle
+search sent : "{} > advcl {tag:VERB;conllfeats:/Tense=Pres;VerbForm=Part/}=part: {} >punct {tag:PUNCT;word:/,/}=c1 : {}=c1.{}=part"
+sent = delete part, c1 from sent
+save sent
+
+
+
+	#Comma after and pres part
+search sent : "{} > advcl {tag:VERB;conllfeats:/Tense=Pres;VerbForm=Part/}=part: {} >punct {tag:PUNCT;word:/,/}=c2 : {}=el1.{}=c2 : {}=c2.{}=el2 : {}=el1 < {}=part : {}=el2 !< {}=part"
+sent = delete part, c2 from sent
+save sent
+
+
+
+	#Two commas and pres part
+search sent : "{} > advcl {tag:VERB;conllfeats:/Tense=Pres;VerbForm=Part/}=part: {} >punct {tag:PUNCT;word:/,/}=c1 :  {} >punct {tag:PUNCT;word:/,/}=c2 : {}=c1 !== {}=c2 : {}=c1.{}=part : {}=el1.{}=c2 : {}=c2.{}=el2 : {}=el1 < {}=part : {}=el2 !< {}=part"
+sent = delete part, c1, c2 from sent
+save sent
+
+
+
+	#Comma before and past participle
+search sent : "{} > advcl {tag:VERB;conllfeats:/Gender=.*;Number=.*;Tense=Past;VerbForm=Part/}=part: {} >punct {tag:PUNCT;word:/,/}=c1 : {}=c1.{}=part"
+sent = delete part, c1 from sent
+save sent
+
+
+	#Comma after and pres part
+search sent : "{} > advcl {tag:VERB;conllfeats:/Gender=.*;Number=.*;Tense=Past;VerbForm=Part/}=part: {} >punct {tag:PUNCT;word:/,/}=c2 : {}=el1.{}=c2 : {}=c2.{}=el2 : {}=el1 < {}=part : {}=el2 !< {}=part"
+sent = delete part, c2 from sent
+save sent
+
+	#Two commas and pres part
+search sent : "{} > advcl {tag:VERB;conllfeats:/Gender=.*;Number=.*;Tense=Past;VerbForm=Part/}=part: {} >punct {tag:PUNCT;word:/,/}=c1 :  {} >punct {tag:PUNCT;word:/,/}=c2 : {}=c1 !== {}=c2 : {}=c1.{}=part : {}=el1.{}=c2 : {}=c2.{}=el2 : {}=el1 < {}=part : {}=el2 !< {}=part"
+sent = delete part, c1, c2 from sent
+save sent
+
+
+operation end

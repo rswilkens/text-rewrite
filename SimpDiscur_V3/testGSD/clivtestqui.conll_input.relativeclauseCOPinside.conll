@@ -1,0 +1,90 @@
+1	C'	ce	PRON	_	Number=Sing|Person=3|PronType=Dem	3	nsubj	_	true	_
+2	est	être	AUX	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=3	3	cop	_	true	_
+3	Jean	Jean	PROPN	_	_	0	root	_	true	(0)
+4	qui	qui	PRON	_	PronType=Rel	6	nsubj	_	true	_
+5	est	être	AUX	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=3	6	aux:tense	_	true	_
+6	venu	venir	VERB	_	Tense=Past|Number=Sing|VerbForm=Part|Gender=Masc	3	acl:relcl	_	true	_
+7	hier	hier	ADV	_	_	6	advmod	_	true	_
+8	.	.	PUNCT	_	_	3	punct	_	true	_
+
+1	C'	ce	PRON	_	Number=Sing|Person=3|PronType=Dem	4	nsubj	_	true	_
+2	est	être	AUX	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=3	4	cop	_	true	_
+3	l'	le	DET	_	Number=Sing|Gender=Masc|Definite=Def|PronType=Art	4	det	_	true	(0
+4	enfant	enfant	NOUN	_	Number=Sing|Gender=Masc	0	root	_	true	0)
+5	qui	qui	PRON	_	PronType=Rel	7	nsubj	_	true	(0)
+6	avait	avoir	AUX	_	Tense=Imp|Mood=Ind|Number=Sing|VerbForm=Fin|Person=3	7	aux:tense	_	true	_
+7	mangé	manger	VERB	_	Tense=Past|Number=Sing|VerbForm=Part|Gender=Masc	4	acl:relcl	_	true	_
+8	la	le	DET	_	Number=Sing|Gender=Fem|Definite=Def|PronType=Art	9	det	_	false	(6
+9	pomme	pomme	NOUN	_	Number=Sing|Gender=Fem	7	obj	_	false	_
+10	rouge	rouge	ADJ	_	Number=Sing|Gender=Fem	9	amod	_	false	6)
+11	.	.	PUNCT	_	_	4	punct	_	true	_
+
+1	C'	ce	PRON	_	Number=Sing|Person=3|PronType=Dem	5	nsubj	_	true	(1)
+2	est	être	AUX	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=3	5	cop	_	true	_
+3	le	le	DET	_	Number=Sing|Gender=Masc|Definite=Def|PronType=Art	5	det	_	false	(1
+4	grand	grand	ADJ	_	Number=Sing|Gender=Masc	5	amod	_	false	_
+5	monsieur	monsieur	NOUN	_	Number=Sing|Gender=Masc	0	root	_	false	1)
+6	qui	qui	PRON	_	PronType=Rel	7	nsubj	_	true	(1)
+7	a	avoir	VERB	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=3	5	acl:relcl	_	true	_
+8	une	un	DET	_	Number=Sing|Gender=Fem|Definite=Ind|PronType=Art	10	det	_	true	(7
+9	grande	grand	ADJ	_	Number=Sing|Gender=Fem	10	amod	_	true	_
+10	moustache	moustache	NOUN	_	Number=Sing|Gender=Fem	7	obj	_	true	7)
+11	.	.	PUNCT	_	_	5	punct	_	true	_
+
+1	C'	ce	PRON	_	Number=Sing|Person=3|PronType=Dem	3	nsubj	_	true	_
+2	est	être	AUX	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=3	3	cop	_	true	_
+3	papa	papa	NOUN	_	Number=Sing|Gender=Masc	0	root	_	true	(1)
+4	qui	qui	PRON	_	PronType=Rel	6	nsubj	_	true	_
+5	a	avoir	AUX	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=3	6	aux:tense	_	true	_
+6	ramener	ramener	VERB	_	VerbForm=Inf	3	acl:relcl	_	true	_
+7	la	le	DET	_	Number=Sing|Gender=Fem|Definite=Def|PronType=Art	8	det	_	true	(8
+8	voiture	voiture	NOUN	_	Number=Sing|Gender=Fem	6	obj	_	true	8)
+9	ce	ce	DET	_	Number=Sing|Gender=Masc|PronType=Dem	10	det	_	false	(3
+10	matin	matin	NOUN	_	Number=Sing|Gender=Masc	6	obl	_	false	3)
+11	.	.	PUNCT	_	_	3	punct	_	true	_
+
+1	C'	ce	PRON	_	Number=Sing|Person=3|PronType=Dem	4	nsubj	_	true	_
+2	était	être	AUX	_	Tense=Imp|Mood=Ind|Number=Sing|VerbForm=Fin|Person=3	4	cop	_	true	_
+3	peut-être	peut-être	ADV	_	_	4	advmod	_	true	_
+4	moi	soi	PRON	_	Number=Sing|Person=1	0	root	_	true	(2)
+5	qui	qui	PRON	_	PronType=Rel	7	nsubj	_	true	(2)
+6	a	avoir	AUX	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=3	7	aux:tense	_	true	_
+7	oublié	oublier	VERB	_	Tense=Past|Number=Sing|VerbForm=Part|Gender=Masc	4	acl:relcl	_	true	_
+8	d'	de	ADP	_	_	9	mark	_	true	_
+9	éteindre	éteindre	VERB	_	VerbForm=Inf	7	xcomp	_	true	_
+10	le	le	DET	_	Number=Sing|Gender=Masc|Definite=Def|PronType=Art	11	det	_	true	(9
+11	chauffage	chauffage	NOUN	_	Number=Sing|Gender=Masc	9	obj	_	true	9)
+12	.	.	PUNCT	_	_	4	punct	_	true	_
+
+1	C'	ce	PRON	_	Number=Sing|Person=3|PronType=Dem	5	nsubj	_	true	_
+2	était	être	AUX	_	Tense=Imp|Mood=Ind|Number=Sing|VerbForm=Fin|Person=3	5	cop	_	true	_
+3	la	le	DET	_	Number=Sing|Gender=Fem|Definite=Def|PronType=Art	5	det	_	true	(2
+4	grande	grand	ADJ	_	Number=Sing|Gender=Fem	5	amod	_	true	_
+5	femme	femme	NOUN	_	Number=Sing|Gender=Fem	0	root	_	true	2)
+6	qui	qui	PRON	_	PronType=Rel	8	nsubj	_	true	(2)
+7	est	être	AUX	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=3	8	aux:tense	_	true	_
+8	venue	venir	VERB	_	Tense=Past|Number=Sing|VerbForm=Part|Gender=Fem	5	acl:relcl	_	true	_
+9	ce	ce	DET	_	Number=Sing|Gender=Masc|PronType=Dem	10	det	_	false	(3
+10	matin	matin	NOUN	_	Number=Sing|Gender=Masc	8	obl	_	false	3)
+11	.	.	PUNCT	_	_	5	punct	_	true	_
+
+1	Ce	ce	PRON	_	Number=Sing|Person=3|PronType=Dem	4	nsubj	_	true	_
+2	sont	être	AUX	_	Tense=Pres|Mood=Ind|Number=Plur|VerbForm=Fin|Person=3	4	cop	_	true	_
+3	les	le	DET	_	Number=Plur|Gender=Fem|Definite=Def|PronType=Art	4	det	_	true	(4
+4	grimaces	grimace	NOUN	_	Number=Plur|Gender=Fem	0	root	_	true	4)
+5	qui	qui	PRON	_	PronType=Rel	7	nsubj	_	true	(4)
+6	sont	être	AUX	_	Tense=Pres|Mood=Ind|Number=Plur|VerbForm=Fin|Person=3	7	cop	_	true	_
+7	intolérables	intolérable	ADJ	_	Number=Plur|Gender=Fem	4	acl:relcl	_	true	_
+8	.	.	PUNCT	_	_	4	punct	_	true	_
+
+1	Ce	ce	PRON	_	Number=Sing|Person=3|PronType=Dem	4	nsubj	_	true	_
+2	sont	être	AUX	_	Tense=Pres|Mood=Ind|Number=Plur|VerbForm=Fin|Person=3	4	cop	_	true	_
+3	les	le	DET	_	Number=Plur|Gender=Masc|Definite=Def|PronType=Art	4	det	_	true	(5
+4	immeubles	immeuble	NOUN	_	Number=Plur|Gender=Masc	0	root	_	true	5)
+5	qui	qui	PRON	_	PronType=Rel	6	nsubj	_	true	(5)
+6	font	faire	VERB	_	Tense=Pres|Mood=Ind|Number=Plur|VerbForm=Fin|Person=3	4	acl:relcl	_	true	_
+7	de	de	ADP	_	_	9	case	_	true	_
+8	le	le	DET	_	Number=Sing|Gender=Masc|Definite=Def|PronType=Art	9	det	_	true	(10
+9	bruit	bruit	NOUN	_	Number=Sing|Gender=Masc	6	obl:arg	_	true	10)
+10	.	.	PUNCT	_	_	4	punct	_	true	_
+

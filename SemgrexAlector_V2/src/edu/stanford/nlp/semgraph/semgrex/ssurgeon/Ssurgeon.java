@@ -723,8 +723,8 @@ public class Ssurgeon {
 			Integer wordOriginalIndex = movedWord.get(index);
 			
 			IndexedWord parent = gov ? word : graph.getParent(word);
-			if(parent.equals(word))
-				System.out.println();
+//			if(parent.equals(word))
+//				System.out.println();
 			List<IndexedWord> allWords = graph.vertexListSorted();
 
 			int newWordBlockIndex = -1;

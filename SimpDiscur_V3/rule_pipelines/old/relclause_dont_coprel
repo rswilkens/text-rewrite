@@ -1,0 +1,104 @@
+pipeline relativeclauseCOPinside debug
+
+operation relativeclauseDONTcopInside begin FIRST
+
+	#Subj noun 
+search sent : "{tag:NOUN}=subj </.*subj/ {tag:VERB}=verb1 ?>det {tag:DET}=det >>/acl(.*)/ ({}=attRel >/.*subj/ ({tag:NOUN}= subjRel >nmod {lemma:dont}=dont)) : {$} ?>punct {tag:PUNCT}=punct"
+
+attRel = replace attRel(DEPENDENCY) '1;;;;;0;root' from attRel
+sent = delete dont from sent
+
+sent1, sent2 = split subj from sent
+sentSubj, sent2 = split attRel from sent2
+
+sentSubjC = copy sentSubj
+sentRel = copy sent2
+
+sentSubjDe = insert sentSubj -0* '1;de;de;ADP;;0;mark' from sentSubj
+sent1 = insert verb1 -0* sentSubjC from sent1
+sent3 = insert subjRel +0* sentSubjDe from sentRel
+
+if det begin
+	sent3 = replace det (FORM, LEMMA, FEATS) '1;ce;ce;;PronType=Dem;0;' from sent3
+end
+
+
+sent3 = replace subj(DEPENDENCY) '1;;;;;0;nmod' from sent3
+
+if punct begin
+	sent3 = insert attRel 0*  punct from sent3
+end
+
+save sent1, sent3
+
+
+
+	#Subj other
+search sent: "[{tag:PROPN}=subj|{tag:PRON}=subj] </.*subj/ {tag:VERB}=verb1 >>/acl(.*)/ ({}=attRel >/.*subj/ ({tag:NOUN}= subjRel >nmod {lemma:dont}=dont))"
+
+attRel = replace attRel(DEPENDENCY) '1;;;;;0;root' from attRel
+sent = delete dont from sent
+
+sent1, sent2 = split subj from sent
+sentSubj, sent2 = split attRel from sent2
+
+sentSubjC = copy sentSubj
+sentRel = copy sent2
+
+sentSubjDe = insert sentSubj -0* '1;de;de;ADP;;0;mark' from sentSubj
+sent1 = insert verb1 -0* sentSubjC from sent1
+sent3 = insert subjRel +0* sentSubjDe from sentRel
+
+sent3 = replace subj(DEPENDENCY) '1;;;;;0;nmod' from sent3
+
+
+save sent1, sent3
+
+
+operation end
+
+
+operation relativeclauseDONTdoubleCop begin FIRST
+
+	#Subj other
+search sent : "{}=att > nsubj !{tag:PRON} = subj > cop {lemma:être} > /acl(.*)/ ({}=attRel > cop {lemma:être} >/.*subj/ (!{tag:VERB}= subjRel >nmod {lemma:dont}=dont)): {$} ?>punct {tag:PUNCT}=punct"
+
+sent = delete dont from sent
+sent = replace attRel(DEPENDENCY) '1;;;;;0;root' from sent
+
+sent1, sent2 = split subj from sent
+sent2 = replace subj(DEPENDENCY) '1;;;;;0;nmod' from sent2
+sent1, sent3 = split attRel from sent1
+
+sentSubjDe = insert sent2 -0* '1;de;de;ADP;;0;mark' from sent2
+sent4 = insert subjRel 0* sentSubjDe from sent3
+
+if punct begin
+	sent4 = insert sent4 0* punct from sent4
+end
+
+save sent4
+
+
+	#Subj pron
+search sent : "{}=att > nsubj {tag:PRON} = subj > cop {lemma:être}=etre > /acl(.*)/ ({}=attRel > cop {lemma:être}>/.*subj/ ({}= subjRel >nmod {lemma:dont}=dont)): {$} ?>punct {tag:PUNCT}=punct"
+
+sent = replace att(DEPENDENCY) '1;;;;;0;nmod' from sent
+sent = replace attRel(DEPENDENCY) '1;;;;;0;root' from sent
+
+sent1, sentRel = split attRel from sent
+sentDe = copy sentRel
+
+sentDe = insert subjRel 0*  '1;de;de;ADP;;0;mark' from sentDe
+sent2 = insert subjRel 0* sent1 from sentDe
+
+sent2 = delete dont,subj,etre from sent2
+sent2 = replace att(DEPENDENCY) '1;;;;;0;nmod' from sent2
+
+if punct begin
+	sent2 = move attRel 0* punct from sent2
+end
+
+save sent2
+
+operation end

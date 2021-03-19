@@ -211,7 +211,8 @@ public class CoNLLUDocumentReader implements IteratorFromReaderFactory<SemanticG
         return word;
       }
 
-      String[] bits = line.split("\\s+");
+//      String[] bits = line.split("\\s+"); //rswilkens the parser can identify a single which contains a space character (e.g. "500 000")  
+      String[] bits = line.split("\t");
 
       word.set(CoreAnnotations.TextAnnotation.class, bits[1]);
 
@@ -239,6 +240,10 @@ public class CoNLLUDocumentReader implements IteratorFromReaderFactory<SemanticG
         HashMap<String,String> extraDeps = CoNLLUUtils.parseExtraDeps(bits[8]);
         word.set(CoreAnnotations.CoNLLUSecondaryDepsAnnotation.class, extraDeps);
       } else {
+    	  int x =0;
+    	for (String b : bits) {
+			x++;
+		}
         word.set(CoreAnnotations.IndexAnnotation.class, Integer.parseInt(bits[0]));
         word.set(CoreAnnotations.LemmaAnnotation.class, bits[2]);
         word.set(CoreAnnotations.CoarseTagAnnotation.class, bits[4]);

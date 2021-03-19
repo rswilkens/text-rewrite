@@ -300,7 +300,8 @@ public class PipelineViewer extends JFrame {
 			StringReader r = new StringReader(resultStringBuilder.toString().trim());
 			
 			//new FileReader(pipelineFile.getAbsolutePath()))
-			parser = new Parser(new Lexer(r));
+			Lexer lexer = new Lexer(r);
+			parser = new Parser(lexer);
 			Symbol s = parser.parse();
 			pipeline = parser.getPipeline();
 			updatePipeline();

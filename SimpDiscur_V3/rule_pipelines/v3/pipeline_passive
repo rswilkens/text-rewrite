@@ -1,0 +1,24 @@
+pipeline passive debug
+
+operation passive begin FIRST
+
+search sent : "{tag:VERB;conllfeats:/VerbForm=Part|Voice=Pass/}=verb > /nsubj/ {}=subj > /aux/ {lemma:être}=aux > /obl/ ({}=agent > case{lemma:par}=par)"
+
+
+sent = delete par, aux from sent
+verb = replace verb (FEATS) '1;;;;Mood=Ind|Number=Sing|Tense=Pres|VerbForm=Fin|Voice=-|Gender=-;0;' from verb
+
+agent = replace agent(DEPENDENCY) '1;;;;;0;nsubj' from agent
+subj = replace subj(DEPENDENCY) '1;;;;;0;obj' from subj
+
+
+sent = move verb -1 left subj from sent
+sent = move verb -0* agent from sent
+
+
+
+save sent
+
+
+operation end
+

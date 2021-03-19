@@ -1,0 +1,158 @@
+1	La	le	DET	_	Number=Sing|Gender=Fem|Definite=Def|PronType=Art	3	det	_	true	_
+2	petite	petit	ADJ	_	Number=Sing|Gender=Fem	3	amod	_	true	_
+3	fille	fille	NOUN	_	Number=Sing|Gender=Fem	5	nsubj	_	true	_
+4	a	avoir	AUX	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=3	5	aux:tense	_	true	_
+5	sauté	sauter	VERB	_	Tense=Past|Number=Sing|VerbForm=Part|Gender=Masc	0	root	_	true	_
+6	sur	sur	ADP	_	_	8	case	_	true	_
+7	le	le	DET	_	Number=Sing|Gender=Masc|Definite=Def|PronType=Art	8	det	_	true	_
+8	chien	chien	NOUN	_	Number=Sing|Gender=Masc	5	obl	_	true	_
+9	paresseux	paresseux	ADJ	_	Number=Sing|Gender=Masc	8	amod	_	true	_
+10	.	.	PUNCT	_	_	5	punct	_	true	_
+
+1	je	il	PRON	_	Number=Sing|Person=1|PronType=Prs	4	nsubj	_	true	_
+2	t'	lui	PRON	_	Number=Sing|Person=1|PronType=Prs	4	iobj	_	true	_
+3	ai	avoir	AUX	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=1	4	aux:tense	_	true	_
+4	parlé	parler	VERB	_	Tense=Past|Number=Sing|VerbForm=Part|Gender=Masc	0	root	_	true	_
+5	hier	hier	ADV	_	_	4	advmod	_	true	_
+6	de	de	ADP	_	_	9	mark	_	true	_
+7	ce	ce	DET	_	Number=Sing|Gender=Fem|Definite=Def|PronType=Dem	9	det	_	true	_
+8	petite	petit	ADJ	_	Number=Sing|Gender=Fem	9	amod	_	true	_
+9	fille	fille	NOUN	_	Number=Sing|Gender=Fem	4	iobj	_	true	_
+
+1	Les	le	DET	_	Number=Plur|Gender=Fem|Definite=Def|PronType=Art	3	det	_	true	_
+2	petites	petit	ADJ	_	Number=Plur|Gender=Fem	3	amod	_	true	_
+3	filles	fille	NOUN	_	Number=Plur|Gender=Fem	5	nsubj	_	true	_
+4	ont	avoir	AUX	_	Tense=Pres|Mood=Ind|Number=Plur|VerbForm=Fin|Person=3	5	aux:tense	_	true	_
+5	sautés	sauter	VERB	_	Tense=Past|Number=Plur|VerbForm=Part|Gender=Masc	0	root	_	true	_
+6	sur	sur	ADP	_	_	8	case	_	true	_
+7	les	le	DET	_	Number=Plur|Gender=Masc|Definite=Def|PronType=Art	8	det	_	true	_
+8	chiens	chien	NOUN	_	Number=Plur|Gender=Masc	5	obl	_	true	_
+9	paresseux	paresseux	ADJ	_	Number=Plur|Gender=Masc	8	amod	_	true	_
+10	.	.	PUNCT	_	_	5	punct	_	true	_
+
+1	je	il	PRON	_	Number=Sing|Person=1|PronType=Prs	4	nsubj	_	true	_
+2	t'	lui	PRON	_	Number=Sing|Person=1|PronType=Prs	4	iobj	_	true	_
+3	ai	avoir	AUX	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=1	4	aux:tense	_	true	_
+4	parlées	parler	VERB	_	Tense=Past|Number=Plur|VerbForm=Part|Gender=Fem	0	root	_	true	_
+5	hier	hier	ADV	_	_	4	advmod	_	true	_
+6	de	de	ADP	_	_	9	mark	_	true	_
+7	ce	ce	DET	_	Number=Plur|Gender=Fem|Definite=Def|PronType=Dem	9	det	_	true	_
+8	petites	petit	ADJ	_	Number=Plur|Gender=Fem	9	amod	_	true	_
+9	filles	fille	NOUN	_	Number=Plur|Gender=Fem	4	iobj	_	true	_
+
+1	Le	le	DET	_	Number=Sing|Gender=Masc|Definite=Def|PronType=Art	2	det	_	true	_
+2	renard	renard	NOUN	_	Number=Sing|Gender=Masc	6	nsubj	_	true	_
+3	rapide	rapide	ADJ	_	Number=Sing|Gender=Masc	2	amod	_	true	_
+4	brun	brun	ADJ	_	Number=Sing|Gender=Masc	2	amod	_	true	_
+5	a	avoir	AUX	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=3	6	aux:tense	_	true	_
+6	sauté	sauter	VERB	_	Tense=Past|Number=Sing|VerbForm=Part|Gender=Masc	0	root	_	true	_
+7	sur	sur	ADP	_	_	9	case	_	true	_
+8	le	le	DET	_	Number=Sing|Gender=Masc|Definite=Def|PronType=Art	9	det	_	true	_
+9	chien	chien	NOUN	_	Number=Sing|Gender=Masc	6	obl	_	true	_
+10	paresseux	paresseux	ADJ	_	Number=Sing|Gender=Masc	9	amod	_	true	_
+11	.	.	PUNCT	_	_	6	punct	_	true	_
+
+1	je	il	PRON	_	Number=Sing|Person=1|PronType=Prs	2	nsubj	_	true	_
+2	connais	connaître	VERB	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=1	0	root	_	true	_
+3	le	le	DET	_	Number=Sing|Gender=Masc|Definite=Def|PronType=Art	4	det	_	true	_
+4	prénom	prénom	NOUN	_	Number=Sing|Gender=Masc	2	obj	_	true	_
+5	de	de	ADP	_	_	7	mark	_	true	_
+6	ce	ce	DET	_	Number=Sing|Gender=Masc|Definite=Def|PronType=Dem	7	det	_	true	_
+7	renard	renard	NOUN	_	Number=Sing|Gender=Masc	2	iobj	_	true	_
+8	rapide	rapide	ADJ	_	Number=Sing|Gender=Masc	7	amod	_	true	_
+9	brun	brun	ADJ	_	Number=Sing|Gender=Masc	7	amod	_	true	_
+
+1	Les	le	DET	_	Number=Plur|Gender=Masc|Definite=Def|PronType=Art	2	det	_	true	_
+2	renards	renard	NOUN	_	Number=Plur|Gender=Masc	6	nsubj	_	true	_
+3	rapides	rapide	ADJ	_	Number=Plur|Gender=Masc	2	amod	_	true	_
+4	bruns	brun	ADJ	_	Number=Plur|Gender=Masc	2	amod	_	true	_
+5	ont	avoir	AUX	_	Tense=Pres|Mood=Ind|Number=Plur|VerbForm=Fin|Person=3	6	aux:tense	_	true	_
+6	sauté	sauter	VERB	_	Tense=Past|Number=Sing|VerbForm=Part|Gender=Masc	0	root	_	true	_
+7	sur	sur	ADP	_	_	9	case	_	true	_
+8	les	le	DET	_	Number=Plur|Gender=Masc|Definite=Def|PronType=Art	9	det	_	true	_
+9	chiens	chien	NOUN	_	Number=Plur|Gender=Masc	6	obl	_	true	_
+10	paresseux	paresseux	ADJ	_	Number=Plur|Gender=Masc	9	amod	_	true	_
+11	.	.	PUNCT	_	_	6	punct	_	true	_
+
+1	je	il	PRON	_	Number=Sing|Person=1|PronType=Prs	2	nsubj	_	true	_
+2	connais	connaître	VERB	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=1	0	root	_	true	_
+3	les	le	DET	_	Number=Plur|Gender=Masc|Definite=Def|PronType=Art	4	det	_	true	_
+4	prénoms	prénom	NOUN	_	Number=Plur|Gender=Masc	2	obj	_	true	_
+5	de	de	ADP	_	_	7	mark	_	true	_
+6	ce	ce	DET	_	Number=Plur|Gender=Masc|Definite=Def|PronType=Dem	7	det	_	true	_
+7	renards	renard	NOUN	_	Number=Plur|Gender=Masc	2	iobj	_	true	_
+8	rapides	rapide	ADJ	_	Number=Plur|Gender=Masc	7	amod	_	true	_
+9	bruns	brun	ADJ	_	Number=Plur|Gender=Masc	7	amod	_	true	_
+
+1	L'	le	DET	_	Number=Sing|Gender=Masc|Definite=Def|PronType=Art	2	det	_	true	_
+2	éléphant	éléphant	NOUN	_	Number=Sing|Gender=Masc	5	nsubj	_	true	_
+3	gris	gris	ADJ	_	Number=Sing|Gender=Masc	2	amod	_	true	_
+4	a	avoir	AUX	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=3	5	aux:tense	_	true	_
+5	bu	bouvoir	VERB	_	Tense=Past|Number=Sing|VerbForm=Part|Gender=Masc	0	root	_	true	_
+6	de	de	ADP	_	_	8	det	_	true	_
+7	l'	le	DET	_	Number=Sing|Gender=Fem|Definite=Def|PronType=Art	6	fixed	_	true	_
+8	eau	eau	NOUN	_	Number=Sing|Gender=Fem	5	obj	_	true	_
+9	.	.	PUNCT	_	_	5	punct	_	true	_
+
+1	je	il	PRON	_	Number=Sing|Person=1|PronType=Prs	2	nsubj	_	true	_
+2	connais	connaître	VERB	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=1	0	root	_	true	_
+3	la	le	DET	_	Number=Sing|Gender=Fem|Definite=Def|PronType=Art	4	det	_	true	_
+4	taille	taille	NOUN	_	Number=Sing|Gender=Fem	2	obj	_	true	_
+5	de	de	ADP	_	_	7	mark	_	true	_
+6	ce	ce	DET	_	Number=Sing|Gender=Masc|Definite=Def|PronType=Dem	7	det	_	true	_
+7	éléphant	éléphant	NOUN	_	Number=Sing|Gender=Masc	2	iobj	_	true	_
+8	gris	gris	ADJ	_	Number=Sing|Gender=Masc	7	amod	_	true	_
+
+1	L'	le	DET	_	Number=Sing|Gender=Masc|Definite=Def|PronType=Art	2	det	_	true	_
+2	arbre	arbre	NOUN	_	Number=Sing|Gender=Masc	3	nsubj	_	true	_
+3	pousse	pousser	VERB	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=3	0	root	_	true	_
+4	ici	ici	ADV	_	_	3	advmod	_	true	_
+5	.	.	PUNCT	_	_	3	punct	_	true	_
+
+1	je	il	PRON	_	Number=Sing|Person=1|PronType=Prs	2	nsubj	_	true	_
+2	connais	connaître	VERB	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=1	0	root	_	true	_
+3	le	le	DET	_	Number=Sing|Gender=Masc|Definite=Def|PronType=Art	4	det	_	true	_
+4	type	type	NOUN	_	Number=Sing|Gender=Masc	2	obj	_	true	_
+5	de	de	ADP	_	_	7	mark	_	true	_
+6	ce	ce	DET	_	Number=Sing|Gender=Masc|Definite=Def|PronType=Dem	7	det	_	true	_
+7	arbre	arbre	NOUN	_	Number=Sing|Gender=Masc	2	iobj	_	true	_
+
+1	L'	le	DET	_	Number=Sing|Gender=Fem|Definite=Def|PronType=Art	2	det	_	true	_
+2	abeille	abeille	NOUN	_	Number=Sing|Gender=Fem	4	nsubj	_	true	_
+3	jaune	jaune	ADJ	_	Number=Sing|Gender=Fem	2	amod	_	true	_
+4	vole	voler	VERB	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=3	0	root	_	true	_
+5	ici	ici	ADV	_	_	4	advmod	_	true	_
+6	.	.	PUNCT	_	_	4	punct	_	true	_
+
+1	je	il	PRON	_	Number=Sing|Person=1|PronType=Prs	2	nsubj	_	true	_
+2	connais	connaître	VERB	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=1	0	root	_	true	_
+3	la	le	DET	_	Number=Sing|Gender=Fem|Definite=Def|PronType=Art	4	det	_	true	_
+4	provenance	provenance	NOUN	_	Number=Sing|Gender=Fem	2	obj	_	true	_
+5	de	de	ADP	_	_	7	mark	_	true	_
+6	ce	ce	DET	_	Number=Sing|Gender=Fem|Definite=Def|PronType=Dem	7	det	_	true	_
+7	abeille	abeille	NOUN	_	Number=Sing|Gender=Fem	2	iobj	_	true	_
+8	jaune	jaune	ADJ	_	Number=Sing|Gender=Fem	7	amod	_	true	_
+
+1	L'	le	DET	_	Number=Sing|Gender=Masc|Definite=Def|PronType=Art	2	det	_	true	(5
+2	arbre	arbre	NOUN	_	Number=Sing|Gender=Masc	9	nsubj	_	true	5)
+3	dont	dont	PRON	_	PronType=Rel	5	iobj	_	true	_
+4	je	il	PRON	_	Number=Sing|Person=1|PronType=Prs	5	nsubj	_	true	(0)
+5	connais	connaître	VERB	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=1	2	acl:relcl	_	true	_
+6	le	le	DET	_	Number=Sing|Gender=Masc|Definite=Def|PronType=Art	7	det	_	true	(6
+7	type	type	NOUN	_	Number=Sing|Gender=Masc	5	obj	_	true	6)
+8	est	être	AUX	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=3	9	cop	_	false	_
+9	vert	vert	ADJ	_	Number=Sing|Gender=Masc	0	root	_	false	_
+10	.	.	PUNCT	_	_	9	punct	_	true	_
+
+1	L'	le	DET	_	Number=Sing|Gender=Fem|Definite=Def|PronType=Art	2	det	_	true	(4
+2	abeille	abeille	NOUN	_	Number=Sing|Gender=Fem	10	nsubj	_	true	_
+3	jaune	jaune	ADJ	_	Number=Sing|Gender=Fem	2	amod	_	true	4)
+4	dont	dont	PRON	_	PronType=Rel	6	iobj	_	true	(4)
+5	je	il	PRON	_	Number=Sing|Person=1|PronType=Prs	6	nsubj	_	true	(0)
+6	connais	connaître	VERB	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=1	2	acl:relcl	_	true	_
+7	la	le	DET	_	Number=Sing|Gender=Fem|Definite=Def|PronType=Art	8	det	_	true	(7
+8	provenance	provenance	NOUN	_	Number=Sing|Gender=Fem	6	obj	_	true	7)
+9	est	être	AUX	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=3	10	cop	_	true	_
+10	ici	ici	ADV	_	_	0	root	_	true	_
+11	.	.	PUNCT	_	_	10	punct	_	true	_
+

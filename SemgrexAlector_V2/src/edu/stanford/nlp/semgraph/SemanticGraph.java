@@ -1265,6 +1265,8 @@ public class SemanticGraph implements Serializable  {
 		String ret = sb.toString();
 		if(wordFormat.equals(CoreLabel.OutputFormat.CoNLL) || wordFormat.equals(CoreLabel.OutputFormat.CoNLLcoref)) { //sort output by word index
 			String[] lns = ret.split("\n");
+			if(ret.startsWith("0\t") || ret.split("\n0").length>1)
+				System.out.println();
 			List<String> lines = new ArrayList<String>();
 			for (int i = 0; i < lns.length; i++) 
 				lines.add("");

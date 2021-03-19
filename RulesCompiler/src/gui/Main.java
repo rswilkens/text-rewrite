@@ -10,11 +10,11 @@ import grammar.Parser;
 import java_cup.runtime.Symbol;
 
 public class Main {
-
+	@Deprecated
     public static void main(String[] args) throws FileNotFoundException {
 
         String fileName = "t1";  
-
+        
         Parser parser = new Parser(new Lexer(new FileReader(fileName)));
         try {
             Symbol s = parser.parse();

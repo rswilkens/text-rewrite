@@ -1,0 +1,159 @@
+pipeline cleaved debug
+
+operation cleavedQUE begin FIRST
+	#root noun
+search sent: "{$}=root ?>det{}=det >cop {}=etre >nsubj {tag:PRON}=ce >/acl:relcl/ ({tag:VERB}=verb >>obj {word:que}=pron)"
+
+sent = delete ce, etre, pron from sent
+sent1, sent2 = split verb from sent
+
+sent1 = insert root -0* sent2 from sent1
+
+if det begin
+	sent1 = replace det (FORM, LEMMA, FEATS) '1;ce;ce;;PronType=Dem;0;' from sent1
+end
+
+root = replace root(DEPENDENCY) '1;;;;;0;obj' from root
+verb = replace verb(DEPENDENCY) '1;;;;;0;root' from verb
+
+save sent1
+
+
+		#root noun modif
+search sent: "{$}=root ?>det{}=det >cop {}=etre >nsubj {tag:PRON}=ce >>/acl:relcl/ ({tag:VERB}=verb >>obj {word:que}=pron)"
+
+sent = delete ce, etre, pron from sent
+sent1, sent2 = split verb from sent
+
+sent1 = insert root -0* sent2 from sent1
+
+if det begin
+	sent1 = replace det (FORM, LEMMA, FEATS) '1;ce;ce;;PronType=Dem;0;' from sent1
+end
+
+root = replace root(DEPENDENCY) '1;;;;;0;obj' from root
+verb = replace verb(DEPENDENCY) '1;;;;;0;root' from verb
+
+save sent1
+
+
+
+	#root other
+search sent: "{$}=root >cop {}=etre >nsubj {tag:PRON}=ce >/acl:relcl/ ({tag:VERB}=verb >>obj {word:que}=pron)"
+
+sent = delete ce, etre, pron from sent
+sent1, sent2 = split verb from sent
+
+sent1 = insert root -0* sent2 from sent1
+
+root = replace root(DEPENDENCY) '1;;;;;0;obj' from root
+verb = replace verb(DEPENDENCY) '1;;;;;0;root' from verb
+
+
+
+save sent1
+
+
+	#root noun and adv
+search sent: "{$}=root ?>det{}=det >cop {}=etre >nsubj {tag:PRON}=ce >advmod {tag:ADV}=adv1 >/acl:rel/ ({tag:VERB}=verb >>obj {word:que}=pron)"
+
+sent = delete ce, etre, pron from sent
+sent1, sent2 = split verb from sent
+
+sent1 = insert root -0* sent2 from sent1
+
+if det begin
+	sent1 = replace det (FORM, LEMMA, FEATS) '1;ce;ce;;PronType=Dem;0;' from sent1
+end
+
+root = replace root(DEPENDENCY) '1;;;;;0;obj' from root
+verb = replace verb(DEPENDENCY) '1;;;;;0;root' from verb
+
+save sent1
+
+
+	#root pronoun ce and adv
+search sent: "{$}=root >nsubj ({tag:PRON;lemma:ce}=ce >cop {}=etre >advmod {tag:ADV}=adv1) >mark {word:que}=pron"
+
+sent = delete ce, etre, pron from sent
+
+sent1 = insert root -0* adv1 from sent
+
+root = replace root(DEPENDENCY) '1;;;;;0;obj' from root
+
+save sent1
+
+
+	#root adv
+search sent: "{$}=root >/subj/ ({tag:PRON}=ce >cop {}=etre >/acl:relcl/ ({tag:VERB}=verb >obj {word:que}=pron))"
+
+sent = delete ce, etre, pron from sent
+sent1, sent2 = split verb from sent
+
+sent1 = insert root -0* sent2 from sent1
+
+root = replace root(DEPENDENCY) '1;;;;;0;advmod' from root
+verb = replace verb(DEPENDENCY) '1;;;;;0;root' from verb
+
+save sent1
+
+operation end
+
+
+
+
+
+operation cleavedQUI begin FIRST
+	#No cop
+search sent: "{$}=root ?>det{}=det >cop {}=etre >nsubj {tag:PRON}=ce >/acl:relcl|ccomp/ ({tag:VERB}=verb >nsubj {word:qui}=pron)"
+
+sent = delete ce, etre, pron from sent
+
+if det begin
+	sent = replace det (FORM, LEMMA, FEATS) '1;ce;ce;;PronType=Dem;0;' from sent
+end
+
+root = replace root(DEPENDENCY) '1;;;;;0;nsubj' from root
+verb = replace verb(DEPENDENCY) '1;;;;;0;root' from verb
+
+
+save sent
+
+	#No cop_version2
+search sent: "{$}=root ?>det{}=det >cop {}=etre >nsubj {tag:PRON}=ce >>/acl:relcl|ccomp/ ({tag:VERB}=verb >nsubj {word:qui}=pron)"
+
+sent = delete ce, etre, pron from sent
+
+if det begin
+	sent = replace det (FORM, LEMMA, FEATS) '1;ce;ce;;PronType=Dem;0;' from sent
+end
+
+root = replace root(DEPENDENCY) '1;;;;;0;nsubj' from root
+verb = replace verb(DEPENDENCY) '1;;;;;0;root' from verb
+
+
+save sent
+
+
+
+	#Cop
+search sent: "{$}=root ?>det{}=det >/cop|aux/ {}=etre >/nsubj/ {tag:PRON}=ce >/acl:relcl|ccomp/ ({}=attRel >nsubj {word:qui}=pron > cop{lemma:être})"
+
+sent = delete ce, etre, pron from sent
+
+if det begin
+	sent = replace det (FORM, LEMMA, FEATS) '1;ce;ce;;PronType=Dem;0;' from sent
+end
+
+root = replace root(DEPENDENCY) '1;;;;;0;nsubj' from root
+attRel = replace attRel(DEPENDENCY) '1;;;;;0;root' from attRel
+
+save sent
+
+
+operation end
+
+
+
+
+

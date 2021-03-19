@@ -1,0 +1,37 @@
+pipeline relativeclause debug
+
+operation relativeClauseOU begin FIRST
+
+search sent: "{tag:VERB}=verb1 >>obj (( {tag:PROPN}=obj ?>det {}=det ) ?> {tag:ADP}=prep >/acl(.*)/ ( {tag:VERB}=verb2 >>iobj ({lemma:/où/;tag:PRON;conllfeats:/PronType=Rel/}=ou ?>case {tag:ADP}=prepou ))) : {$} ?>punct {tag:PUNCT}=punct"
+
+sent = delete ou from sent
+sent1, sent2 = split obj from sent
+sentObj, sent2 = split verb2 from sent2
+
+sentObjC = copy sentObj
+
+sentObj = insert sent1 +0* obj from sent1
+
+
+if punct begin
+	sentObj = move verb1 0* punct from sentObj
+
+end
+if prepou begin
+	sent2 = insert obj -0* prepou from sent2
+else
+	sent2 = insert obj -0* '1;dans;dans;ADP;;0;case' from sent2 
+end	
+
+sent2 = insert verb2 +0* obj from sent2
+
+if det begin
+	sent2 = replace det (FORM, LEMMA, FEATS) '1;ce;ce;;Definite=-|PronType=Dem;0;' from sent2
+end
+
+
+
+
+save sentObj, sent2
+
+operation end

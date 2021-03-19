@@ -1,0 +1,66 @@
+1	Jean	Jean	PROPN	_	_	0	nsubj	_	true	_
+2	est	être	AUX	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=3	3	aux:tense	_	true	_
+3	venu	venir	VERB	_	Tense=Past|Number=Sing|VerbForm=Part|Gender=Masc	1	root	_	true	_
+4	hier	hier	ADV	_	_	3	advmod	_	true	_
+5	.	.	PUNCT	_	_	1	punct	_	true	_
+
+1	ce	ce	DET	_	Number=Sing|Gender=Masc|Definite=Def|PronType=Dem	2	det	_	true	_
+2	enfant	enfant	NOUN	_	Number=Sing|Gender=Masc	0	nsubj	_	true	_
+3	avait	avoir	AUX	_	Tense=Imp|Mood=Ind|Number=Sing|VerbForm=Fin|Person=3	4	aux:tense	_	true	_
+4	mangé	manger	VERB	_	Tense=Past|Number=Sing|VerbForm=Part|Gender=Masc	2	root	_	true	_
+5	la	le	DET	_	Number=Sing|Gender=Fem|Definite=Def|PronType=Art	6	det	_	false	_
+6	pomme	pomme	NOUN	_	Number=Sing|Gender=Fem	4	obj	_	false	_
+7	rouge	rouge	ADJ	_	Number=Sing|Gender=Fem	6	amod	_	false	_
+8	.	.	PUNCT	_	_	2	punct	_	true	_
+
+1	ce	ce	DET	_	Number=Sing|Gender=Masc|Definite=Def|PronType=Dem	3	det	_	false	_
+2	grand	grand	ADJ	_	Number=Sing|Gender=Masc	3	amod	_	false	_
+3	monsieur	monsieur	NOUN	_	Number=Sing|Gender=Masc	0	nsubj	_	false	_
+4	a	avoir	VERB	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=3	3	root	_	true	_
+5	une	un	DET	_	Number=Sing|Gender=Fem|Definite=Ind|PronType=Art	7	det	_	true	_
+6	grande	grand	ADJ	_	Number=Sing|Gender=Fem	7	amod	_	true	_
+7	moustache	moustache	NOUN	_	Number=Sing|Gender=Fem	4	obj	_	true	_
+8	.	.	PUNCT	_	_	3	punct	_	true	_
+
+1	papa	papa	NOUN	_	Number=Sing|Gender=Masc	0	nsubj	_	true	_
+2	a	avoir	AUX	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=3	3	aux:tense	_	true	_
+3	ramener	ramener	VERB	_	VerbForm=Inf	1	root	_	true	_
+4	la	le	DET	_	Number=Sing|Gender=Fem|Definite=Def|PronType=Art	5	det	_	true	_
+5	voiture	voiture	NOUN	_	Number=Sing|Gender=Fem	3	obj	_	true	_
+6	ce	ce	DET	_	Number=Sing|Gender=Masc|PronType=Dem	7	det	_	false	_
+7	matin	matin	NOUN	_	Number=Sing|Gender=Masc	3	obl	_	false	_
+8	.	.	PUNCT	_	_	1	punct	_	true	_
+
+1	peut-être	peut-être	ADV	_	_	2	advmod	_	true	_
+2	moi	soi	PRON	_	Number=Sing|Person=1	0	nsubj	_	true	_
+3	a	avoir	AUX	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=3	4	aux:tense	_	true	_
+4	oublié	oublier	VERB	_	Tense=Past|Number=Sing|VerbForm=Part|Gender=Masc	2	root	_	true	_
+5	d'	de	ADP	_	_	6	mark	_	true	_
+6	éteindre	éteindre	VERB	_	VerbForm=Inf	4	xcomp	_	true	_
+7	le	le	DET	_	Number=Sing|Gender=Masc|Definite=Def|PronType=Art	8	det	_	true	_
+8	chauffage	chauffage	NOUN	_	Number=Sing|Gender=Masc	6	obj	_	true	_
+9	.	.	PUNCT	_	_	2	punct	_	true	_
+
+1	ce	ce	DET	_	Number=Sing|Gender=Fem|Definite=Def|PronType=Dem	3	det	_	true	_
+2	grande	grand	ADJ	_	Number=Sing|Gender=Fem	3	amod	_	true	_
+3	femme	femme	NOUN	_	Number=Sing|Gender=Fem	0	nsubj	_	true	_
+4	est	être	AUX	_	Tense=Pres|Mood=Ind|Number=Sing|VerbForm=Fin|Person=3	5	aux:tense	_	true	_
+5	venue	venir	VERB	_	Tense=Past|Number=Sing|VerbForm=Part|Gender=Fem	3	root	_	true	_
+6	ce	ce	DET	_	Number=Sing|Gender=Masc|PronType=Dem	7	det	_	false	_
+7	matin	matin	NOUN	_	Number=Sing|Gender=Masc	5	obl	_	false	_
+8	.	.	PUNCT	_	_	3	punct	_	true	_
+
+1	ce	ce	DET	_	Number=Plur|Gender=Fem|Definite=Def|PronType=Dem	2	det	_	true	_
+2	grimaces	grimace	NOUN	_	Number=Plur|Gender=Fem	0	nsubj	_	true	_
+3	sont	être	AUX	_	Tense=Pres|Mood=Ind|Number=Plur|VerbForm=Fin|Person=3	4	cop	_	true	_
+4	intolérables	intolérable	ADJ	_	Number=Plur|Gender=Fem	2	root	_	true	_
+5	.	.	PUNCT	_	_	2	punct	_	true	_
+
+1	ce	ce	DET	_	Number=Plur|Gender=Masc|Definite=Def|PronType=Dem	2	det	_	true	_
+2	immeubles	immeuble	NOUN	_	Number=Plur|Gender=Masc	0	nsubj	_	true	_
+3	font	faire	VERB	_	Tense=Pres|Mood=Ind|Number=Plur|VerbForm=Fin|Person=3	2	root	_	true	_
+4	de	de	ADP	_	_	6	case	_	true	_
+5	le	le	DET	_	Number=Sing|Gender=Masc|Definite=Def|PronType=Art	6	det	_	true	_
+6	bruit	bruit	NOUN	_	Number=Sing|Gender=Masc	3	obl:arg	_	true	_
+7	.	.	PUNCT	_	_	2	punct	_	true	_
+

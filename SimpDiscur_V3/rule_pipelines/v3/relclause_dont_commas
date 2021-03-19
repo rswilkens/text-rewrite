@@ -1,0 +1,113 @@
+pipeline relclauseDontcommas debug
+
+operation relativeclauseDONT begin FIRST
+
+	#Subj noun iobj
+search sent: "{tag:NOUN}=subj </.*subj/ {tag:VERB}=verb1 ?>det {tag:DET}=det >>/acl(.*)/ ({}=verb2 >>iobj {lemma:dont}=dont) : {} > {word:/,/}=c1 : {} > {word:/,/}=c2 : {}=c1 !== {}=c2 : {}=c1.{}=dont : {}=el1.{}=c2 : {}=c2.{}=el2 : {}=el1 < {}=verb2 : {}=el2 !< {}=verb2"
+
+sent = delete c1, c2 from sent
+
+verb2 = replace verb2(DEPENDENCY) '1;;;;;0;root' from verb2
+sent = delete dont from sent
+
+sent1, sent2 = split subj from sent
+sentSubj, sent2 = split verb2 from sent2
+
+sentSubjC = copy sentSubj
+sentVerb = copy sent2
+
+sentSubjDe = insert sentSubj -0* '1;de;de;ADP;;0;mark' from sentSubj
+sent1 = insert verb1 -0* sentSubjC from sent1
+sent3 = insert verb2 +0* sentSubjDe from sentVerb
+
+if det begin
+	sent3 = replace det (FORM, LEMMA, FEATS) '1;ce;ce;;PronType=Dem;0;' from sent3
+end
+
+sent3 = replace subj(DEPENDENCY) '1;;;;;0;iobj' from sent3
+
+save sent1, sent3
+
+
+
+	#Subj other iobj
+search sent: "[{tag:PROPN}=subj|{tag:PRON}=subj] </.*subj/ {tag:VERB}=verb1 >>/acl(.*)/ ({}=verb2 >>iobj {lemma:dont}=dont) : {} > {word:/,/}=c1 : {} > {word:/,/}=c2 : {}=c1 !== {}=c2 : {}=c1.{}=dont : {}=el1.{}=c2 : {}=c2.{}=el2 : {}=el1 < {}=verb2 : {}=el2 !< {}=verb2"
+
+sent = delete c1, c2 from sent
+
+
+verb2 = replace verb2(DEPENDENCY) '1;;;;;0;root' from verb2
+sent = delete dont from sent
+
+sent1, sent2 = split subj from sent
+sentSubj, sent2 = split verb2 from sent2
+
+
+sentVerb = copy sent2
+
+sent1 = insert verb1 -0* sentSubj from sent1
+
+sentSubjDe = insert sentSubj -0* '1;de;de;ADP;;0;mark' from sentSubj
+
+sent3 = insert verb2 +0* sentSubjDe from sentVerb
+
+sent3 = replace subj(DEPENDENCY) '1;;;;;0;iobj' from sent3
+
+save sent1, sent3
+
+
+
+	#Subj noun nmod
+search sent: "{tag:NOUN}=subj </.*subj/ {tag:VERB}=verb1 ?>det {tag:DET}=det >>/acl(.*)/ ({}=verb2 >nsubj ({}=E >nmod {lemma:dont}=dont)) : {} > {word:/,/}=c1 : {} > {word:/,/}=c2 : {}=c1 !== {}=c2 : {}=c1.{}=dont : {}=el1.{}=c2 : {}=c2.{}=el2 : {}=el1 < {}=verb2 : {}=el2 !< {}=verb2"
+
+sent = delete c1, c2 from sent
+
+
+verb2 = replace verb2(DEPENDENCY) '1;;;;;0;root' from verb2
+sent = delete dont from sent
+
+sent1, sent2 = split subj from sent
+sentSubj, sent2 = split verb2 from sent2
+
+sentSubjC = copy sentSubj
+sentVerb = copy sent2
+
+sentSubjDe = insert sentSubj -0* '1;de;de;ADP;;0;mark' from sentSubj
+sent1 = insert verb1 -0* sentSubjC from sent1
+sent3 = insert E +0* sentSubjDe from sentVerb
+
+if det begin
+	sent3 = replace det (FORM, LEMMA, FEATS) '1;ce;ce;;PronType=Dem;0;' from sent3
+end
+
+sent3 = replace subj(DEPENDENCY) '1;;;;;0;nmod' from sent3
+
+save sent1, sent3
+
+
+
+	#Subj other nmod
+search sent: "[{tag:PROPN}=subj|{tag:PRON}=subj] </.*subj/ {tag:VERB}=verb1 >>/acl(.*)/ ({}=verb2 >>nmod {lemma:dont}=dont) : {} > {word:/,/}=c1 : {} > {word:/,/}=c2 : {}=c1 !== {}=c2 : {}=c1 !== {}=c2 : {}=c1.{}=dont : {}=el1.{}=c2 : {}=c2.{}=el2 : {}=el1 < {}=verb2 : {}=el2 !< {}=verb2"
+
+sent = delete c1, c2 from sent
+
+
+verb2 = replace verb2(DEPENDENCY) '1;;;;;0;root' from verb2
+sent = delete dont from sent
+
+sent1, sent2 = split subj from sent
+sentSubj, sent2 = split verb2 from sent2
+
+sentSubjC = copy sentSubj
+sentVerb = copy sent2
+
+sentSubjDe = insert sentSubj -0* '1;de;de;ADP;;0;mark' from sentSubj
+
+sent1 = insert verb1 -0* sentSubjC from sent1
+sent3 = insert verb2 +0* sentSubjDe from sentVerb
+
+sent3 = replace subj(DEPENDENCY) '1;;;;;0;nmod' from sent3
+
+save sent1, sent3
+
+operation end

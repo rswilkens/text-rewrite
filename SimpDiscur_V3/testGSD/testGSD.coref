@@ -1,0 +1,297 @@
+#begin document ge:dontbasetest.conll_000
+       La    (8
+   petite     -
+    fille    8)
+     dont     -
+       je   (0)
+       t'     -
+       ai     -
+    parlé     -
+     hier     -
+        a     -
+    sauté     -
+      sur     -
+       le    (1
+    chien     -
+paresseux    1)
+        .     -
+
+      Les    (9
+  petites     -
+   filles    9)
+     dont     -
+       je   (0)
+       t'     -
+       ai     -
+  parlées     -
+     hier     -
+      ont     -
+   sautés     -
+      sur     -
+      les    (1
+   chiens     -
+paresseux    1)
+        .     -
+
+       Le    (2
+   renard     -
+     brun     -
+   rapide    2)
+     dont     -
+       je   (0)
+  connais     -
+       le    (3
+   prénom    3)
+        a     -
+    sauté     -
+      sur     -
+       le    (1
+    chien     -
+paresseux    1)
+        .     -
+
+      Les    (2
+  renards     -
+    bruns     -
+  rapides    2)
+     dont   (2)
+       je   (0)
+  connais     -
+      les    (3
+  prénoms    3)
+      ont     -
+    sauté     -
+      sur     -
+      les    (1
+   chiens     -
+paresseux    1)
+        .     -
+
+      L'   (10
+éléphant     -
+    gris   10)
+    dont     -
+      je   (0)
+ connais     -
+      la   (11
+  taille   11)
+       a     -
+      bu     -
+      de     -
+      l'     -
+     eau     -
+       .     -
+
+     L'    (5
+  arbre    5)
+   dont     -
+     je   (0)
+connais     -
+     le    (6
+   type    6)
+ pousse     -
+    ici     -
+      .     -
+
+        L'    (4
+   abeille     -
+     jaune    4)
+      dont   (4)
+        je   (0)
+   connais     -
+        la    (7
+provenance    7)
+      vole     -
+       ici     -
+         .     -
+
+     L'    (5
+  arbre    5)
+   dont     -
+     je   (0)
+connais     -
+     le    (6
+   type    6)
+    est     -
+   vert     -
+      .     -
+
+        L'    (4
+   abeille     -
+     jaune    4)
+      dont   (4)
+        je   (0)
+   connais     -
+        la    (7
+provenance    7)
+       est     -
+       ici     -
+         .     -
+#end document
+
+#begin document ge:clivtest1.conll_000
+        c'        -
+       est        -
+      dans        -
+       une       (2
+atmosphère        -
+        d'        -
+inquiétude      (3)
+        et        -
+        d'        -
+    effroi   (4)|2)
+       que        -
+        le       (5
+ programme       5)
+        se        -
+poursuivit        -
+         .        -
+
+       C'         -
+      est         -
+        a         -
+       ce        (6
+   moment        6)
+      que         -
+       j'       (1)
+   entrai         -
+       en         -
+    scène       (7)
+        ,         -
+   ajouta         -
+Toutenbec       (8)
+     avec         -
+       un        (9
+      air         -
+       de         -
+  fatuité   (10)|9)
+        .         -
+
+        C'         -
+       est         -
+        là       (0)
+       qu'         -
+        il         -
+    devait         -
+  attendre         -
+        l'       (11
+   arrivée         -
+        de         -
+        le       (12
+charcutier   11)|12)
+         .         -
+
+      C'     -
+     est     -
+     ici   (0)
+     que     -
+      je   (1)
+voudrais     -
+ acheter     -
+     une   (13
+  maison   13)
+       .     -
+
+      C'      -
+     est      -
+      en      -
+  France   (14)
+     que      -
+      je    (1)
+voudrais      -
+   vivre      -
+       .      -
+#end document
+
+#begin document ge:clivtestqui.conll_000
+  C'     -
+ est     -
+Jean   (0)
+ qui     -
+ est     -
+venu     -
+hier     -
+   .     -
+
+    C'     -
+   est     -
+    l'    (0
+enfant    0)
+   qui   (0)
+ avait     -
+ mangé     -
+    la    (6
+ pomme     -
+ rouge    6)
+     .     -
+
+       C'   (1)
+      est     -
+       le    (1
+    grand     -
+ monsieur    1)
+      qui   (1)
+        a     -
+      une    (7
+   grande     -
+moustache    7)
+        .     -
+
+     C'     -
+    est     -
+   papa   (1)
+    qui     -
+      a     -
+ramener     -
+     la    (8
+voiture    8)
+     ce    (3
+  matin    3)
+      .     -
+
+       C'     -
+    était     -
+peut-être     -
+      moi   (2)
+      qui   (2)
+        a     -
+   oublié     -
+       d'     -
+ éteindre     -
+       le    (9
+chauffage    9)
+        .     -
+
+    C'     -
+ était     -
+    la    (2
+grande     -
+ femme    2)
+   qui   (2)
+   est     -
+ venue     -
+    ce    (3
+ matin    3)
+     .     -
+
+          Ce     -
+        sont     -
+         les    (4
+    grimaces    4)
+         qui   (4)
+        sont     -
+intolérables     -
+           .     -
+
+       Ce     -
+     sont     -
+      les    (5
+immeubles    5)
+      qui   (5)
+     font     -
+       de     -
+       le   (10
+    bruit   10)
+        .     -
+#end document
+
