@@ -42,7 +42,7 @@ def join(ln):
     return ln.strip()
     
 
-filesFullText = glob.glob("/mnt/data/eclipse_workspace/SimpDiscur_V3/testGSD/*.txt")
+filesFullText = glob.glob("/mnt/data/eclipse_workspace/SimpDiscur_V3/testGSD/*.conll.output.txt")
 for f in filesFullText:
     outputfile_path = "/mnt/data/eclipse_workspace/SimpDiscur_V3/output/" + f.split("/")[-1]
     with open(f) as input_file, open(outputfile_path, "w") as outputfile:

@@ -8,7 +8,7 @@ def join(lstSents):
     return " ".join(finalSent)
 
 # filesFullText = glob.glob("/mnt/data/eclipse_workspace/SimpDiscur_V3/corpusAlector/21_CE1_sci_orig_grotte.conll.output.conll_aux.simpLexTense_aux.simpLexL4_all")
-filesFullText = glob.glob("/mnt/data/eclipse_workspace/SimpDiscur_V3/corpusAlector/*_aux.simpLexL4_all")
+filesFullText = glob.glob("/mnt/data/eclipse_workspace/SimpDiscur_V3/testGSD/*_aux.simpLexL4_all")
 
 
 for file in filesFullText:

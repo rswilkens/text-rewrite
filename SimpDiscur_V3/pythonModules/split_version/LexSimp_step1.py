@@ -8,7 +8,7 @@ from LexSimpL4 import Simp_LexL4_v2 as Simp_LexL4
 file = "/mnt/data/eclipse_workspace/SimpDiscur_V3/corpusAlector/07_CE1_litt_orig_mousquetaires.conll.output.conll"
 file = "/mnt/data/eclipse_workspace/SimpDiscur_V3/corpusAlector/21_CE1_sci_orig_grotte.conll.output.conll"
 
-files = glob.glob("/mnt/data/eclipse_workspace/SimpDiscur_V3/corpusAlector/*.conll.output.conll")
+files = glob.glob("/mnt/data/eclipse_workspace/SimpDiscur_V3/testGSD/*.conll.output.conll")
 
 for file in files:
     t = Simp_MorphoTense()
