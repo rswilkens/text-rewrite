@@ -26,10 +26,10 @@ public class Simplifier {
 	public static void main(String[] args) {
 
 		String[] resources = {//"resources/test" 
-								"resources/dela-fr-public_mwe.txt", 
-								"resources/wikitionary_words_mwe",
-//								"resources/simpleAprenent.csv", 
-////				"resources/expressio_vocabulary.txt" 
+//								"resources/dela-fr-public_mwe.txt", 
+//								"resources/wikitionary_words_mwe",
+////								"resources/simpleAprenent.csv", 
+//////				"resources/expressio_vocabulary.txt" 
 		};
 		String[] parsed = {
 				"testGSD/clivtest1.conll",
@@ -119,16 +119,19 @@ public class Simplifier {
 	//		return preprocessing(parsedcorpus, corefcorpus, dictionariesExpressions);
 	//	}
 	public Corpus preprocessing(String parsedcorpus, String corefcorpus, ExpressionIdentifier ei) {
-		//join parser and coref annotation in one file
-		Corpus corpus = new Corpus(parsedcorpus, corefcorpus);
-		saveCorpus(parsedcorpus.replace(".conll", "") + ".coref.conll", corpus);
-		//		saveCorpus(parsedcorpus + ".outputAUX",corpus);
-		//annotate expressions
-		corpus = new Corpus(parsedcorpus.replace(".conll", "") + ".coref.conll");
-
-		ei.blockingAnnotate(corpus);
-		//		saveCorpus("aux.conll" + "_preprocessingOutput.coref.conll", corpus);
-		//		System.out.println();
+		Corpus corpus = null;
+		if (corefcorpus != null){
+			//join parser and coref annotation in one file
+			corpus = new Corpus(parsedcorpus, corefcorpus);
+			saveCorpus(parsedcorpus.replace(".conll", "") + ".coref.conll", corpus);
+			//annotate expressions
+			corpus = new Corpus(parsedcorpus.replace(".conll", "") + ".coref.conll");
+			ei.blockingAnnotate(corpus);			
+		}else {
+			corpus = new Corpus(parsedcorpus);
+			ei.blockingAnnotate(corpus);	
+		}
+		
 		return corpus;
 	}
 
