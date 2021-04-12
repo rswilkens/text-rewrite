@@ -139,8 +139,8 @@ public class Simplifier {
 		//		System.out.println(corpus);
 		SyntacticSimp rule = null;
 
-		rule = new Syn2deleteInfo();
-		corpus = rule.simplify(corpus);
+		// rule = new Syn2deleteInfo();
+		// corpus = rule.simplify(corpus);
 
 		//		rule = new Syn3shortSentences();
 		//		corpus = rule.simplify(corpus);
