@@ -165,7 +165,15 @@ public class Word implements Comparable<Word>{
 
 	@Override
 	public String toString() {
-		String ret = surface + "\t" + lemma + "\t" + pos + "\t" + "_" + "\t" + morphology + "\t" + dep + "\t" + deptag + "\t";
+		return toString(false);
+	}
+	
+	public String toString(boolean firstWord) {
+		String ret = "\t" + lemma + "\t" + pos + "\t" + "_" + "\t" + morphology + "\t" + dep + "\t" + deptag + "\t";
+		if (firstWord)
+			ret = (""+surface.charAt(0)).toUpperCase() + surface.substring(1,surface.length()) + ret;
+		else
+			ret = surface + ret;
 //		if (ret.contains("Sud\tSud\tPROPN\t_\t_	5\tnmod"))
 //			System.out.println();
 		ret += "_\t" + allowOperation + "\t"; 

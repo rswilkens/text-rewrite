@@ -26,15 +26,16 @@ public class Simplifier {
 	public static void main(String[] args) {
 
 		String[] resources = {//"resources/test" 
-//								"resources/dela-fr-public_mwe.txt", 
-//								"resources/wikitionary_words_mwe",
-////								"resources/simpleAprenent.csv", 
-//////				"resources/expressio_vocabulary.txt" 
+								"resources/dela-fr-public_mwe.txt", 
+								"resources/wikitionary_words_mwe",
+//								"resources/simpleAprenent.csv", 
+////				"resources/expressio_vocabulary.txt" 
 		};
 		String[] parsed = {
-				"testGSD/clivtest1.conll",
-				"testGSD/clivtestqui.conll",
-				"testGSD/dontbasetest.conll",
+//				"testGSD/clivtest1.conll",
+//				"testGSD/clivtestqui.conll",
+//				"testGSD/dontbasetest.conll",
+				"testSyn/extrait3.conll"
 //				"amalia_22Feb/texte2.conll",
 //				"amalia_22Feb/texte3.conll",
 //				"amalia_22Feb/texte4.conll",
@@ -77,7 +78,7 @@ public class Simplifier {
 
 		//		String parsedcorpus = "corpus/cendrillon_1.conll";
 //		String corefcorpus = "corpusAlector/corpusAlector.coref"; //ge:cendrillon_1.conll_000
-		String corefcorpus = "testGSD/testGSD.coref"; 
+		String corefcorpus = null; //"testGSD/testGSD.coref"; 
 
 		ExpressionIdentifier ei = new ExpressionIdentifier(resources);
 
@@ -139,23 +140,24 @@ public class Simplifier {
 		//		System.out.println(corpus);
 		SyntacticSimp rule = null;
 
-		// rule = new Syn2deleteInfo();
-		// corpus = rule.simplify(corpus);
+//		rule = new Syn2deleteInfo();
+//		 	
 
 		//		rule = new Syn3shortSentences();
 		//		corpus = rule.simplify(corpus);
 
 		rule = new SynSimpUsingExternalFiles(
-				new File("rule_pipelines/relclause_dont_commas"), //relclauseDontcommas
-				new File("rule_pipelines/participe_new3"),
-				new File("rule_pipelines/pipeline_passive"), // passive
-				new File("rule_pipelines/relativeclause_dont4"), // relativeclauseDONT
-				new File("rule_pipelines/relativeclause_ou2"),  // relativeclause
-				new File("rule_pipelines/relclause_dont_coprel"), // relativeclauseCOPinside
-				new File("rule_pipelines/test_relclause_OU2"), //relativeclause #test_relclause_ou2 CHECK 
-				new File("rule_pipelines/conjunction1_19082020"), // conjMAIS
-				new File("rule_pipelines/cliv22"),// cleaved
-				new File("rule_pipelines/relativeclausequi_30092020")// relativeclausequi_19082020 CHECK 
+				new File("testSyn/regle_conj_new1.txt")
+//				new File("rule_pipelines/relclause_dont_commas"), //relclauseDontcommas
+//				new File("rule_pipelines/participe_new3"),
+//				new File("rule_pipelines/pipeline_passive"), // passive
+//				new File("rule_pipelines/relativeclause_dont4"), // relativeclauseDONT
+//				new File("rule_pipelines/relativeclause_ou2"),  // relativeclause
+//				new File("rule_pipelines/relclause_dont_coprel"), // relativeclauseCOPinside
+//				new File("rule_pipelines/test_relclause_OU2"), //relativeclause #test_relclause_ou2 CHECK 
+//				new File("rule_pipelines/conjunction1_19082020"), // conjMAIS
+//				new File("rule_pipelines/cliv22"),// cleaved
+//				new File("rule_pipelines/relativeclausequi_30092020")// relativeclausequi_19082020 CHECK 
 				);
 		corpus = rule.simplify(corpus);
 		return corpus;
@@ -212,11 +214,20 @@ public class Simplifier {
 		}
 	}
 	private void saveCorpusSent(String outputNeme, Corpus corpus) {
+		boolean firstWord = true;
 		try(BufferedWriter out = new BufferedWriter(new FileWriter(outputNeme))){
 			for (Sentence sent : corpus.getSentences()) {
-				for (Word word : sent) 
-					out.write(word.getSurface()+" ");					
+				String aux = null;
+				for (Word word : sent) {
+					aux = word.getSurface();
+					if (firstWord)
+						aux = (""+aux.charAt(0)).toUpperCase() + aux.substring(1,aux.length());
+					out.write(aux+" ");	
+				}
+				if (!aux.endsWith(".") && !aux.endsWith("?") && !aux.endsWith("!") && !aux.endsWith(":"))
+					out.write(".");
 				out.write("\n");
+				firstWord = false;
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

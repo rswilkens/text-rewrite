@@ -35,12 +35,21 @@ public class Sentence implements Iterable<Word>{
 	@Override
 	public String toString() {
 		StringBuffer b = new StringBuffer();
-		for (Word word : words) 
-//			if (word.getId().length==1)
-				b.append(word).append("\n");
-//			else
-//				System.out.println("skipping: " + word);
-		return b.toString();
+		Word lastWord = null;
+		Word root = null;
+		for (Word word : words) {
+			b.append(word.toString()).append("\n");
+			lastWord = word;
+			if (word.getDep().equals("0"))
+				root = word;
+		}
+		if (!lastWord.getLemma().equals(".") && !lastWord.getLemma().equals("?") && !lastWord.getLemma().equals("!") && !lastWord.getLemma().equals(":")) {
+			b.append((lastWord.getId()[0]+1) + "	.	.	PUNCT	_	_	" + root.getId()[0] + "	punct	_	_\n");
+		}
+		String sent = b.toString().trim();
+//		if (!sent.endsWith(".") && !sent.endsWith("?") && !sent.endsWith("!") && !sent.endsWith(":"))
+			sent += ".";
+		return sent;
 	}
 
 	@Override

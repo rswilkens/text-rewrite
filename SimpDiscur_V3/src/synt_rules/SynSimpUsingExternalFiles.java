@@ -42,7 +42,7 @@ public class SynSimpUsingExternalFiles implements SyntacticSimp {
 			pipelines.add(pipe);
 		}
 	}
-	
+	private String workspace_path = "";
 	private Pipeline loadPipeline(File pipelineFilePath) {
 		Parser parser;
 		try {
