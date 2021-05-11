@@ -635,7 +635,8 @@ class CUP$Parser$actions {
             {
               Object RESULT =null;
 		 new Pipeline(null,null);  pipeline.DEBUG=false; 
-              CUP$Parser$result = parser.getSymbolFactory().newSymbol("pipeline",0, ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
+		 	  CUP$Parser$result = parser.getSymbolFactory().newSymbol("pipeline",0, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-1)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
+//              CUP$Parser$result = parser.getSymbolFactory().newSymbol("pipeline",0, ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
           return CUP$Parser$result;
 

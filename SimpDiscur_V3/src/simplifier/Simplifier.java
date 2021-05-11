@@ -26,8 +26,8 @@ public class Simplifier {
 	public static void main(String[] args) {
 
 		String[] resources = {//"resources/test" 
-								"resources/dela-fr-public_mwe.txt", 
-								"resources/wikitionary_words_mwe",
+//								"resources/dela-fr-public_mwe.txt", 
+//								"resources/wikitionary_words_mwe",
 //								"resources/simpleAprenent.csv", 
 ////				"resources/expressio_vocabulary.txt" 
 		};
@@ -35,7 +35,7 @@ public class Simplifier {
 //				"testGSD/clivtest1.conll",
 //				"testGSD/clivtestqui.conll",
 //				"testGSD/dontbasetest.conll",
-				"testSyn/extrait3.conll"
+				"testSyn/extrait1.conll"
 //				"amalia_22Feb/texte2.conll",
 //				"amalia_22Feb/texte3.conll",
 //				"amalia_22Feb/texte4.conll",
@@ -147,17 +147,16 @@ public class Simplifier {
 		//		corpus = rule.simplify(corpus);
 
 		rule = new SynSimpUsingExternalFiles(
-				new File("testSyn/regle_conj_new1.txt")
-//				new File("rule_pipelines/relclause_dont_commas"), //relclauseDontcommas
-//				new File("rule_pipelines/participe_new3"),
-//				new File("rule_pipelines/pipeline_passive"), // passive
-//				new File("rule_pipelines/relativeclause_dont4"), // relativeclauseDONT
-//				new File("rule_pipelines/relativeclause_ou2"),  // relativeclause
-//				new File("rule_pipelines/relclause_dont_coprel"), // relativeclauseCOPinside
-//				new File("rule_pipelines/test_relclause_OU2"), //relativeclause #test_relclause_ou2 CHECK 
-//				new File("rule_pipelines/conjunction1_19082020"), // conjMAIS
-//				new File("rule_pipelines/cliv22"),// cleaved
-//				new File("rule_pipelines/relativeclausequi_30092020")// relativeclausequi_19082020 CHECK 
+//				new File("rule_pipelines_GSD/cliv_new1.txt"),
+				new File("rule_pipelines_GSD/test_cliv_new2.txt"),
+				new File("rule_pipelines_GSD/regle_et_mieux4.txt"),
+                new File("rule_pipelines_GSD/dont_new1.txt"),
+                new File("rule_pipelines_GSD/participe_new1.txt"),
+                new File("rule_pipelines_GSD/passive_new1.txt"),
+                new File("rule_pipelines_GSD/regle_conj_new1.txt"),
+                new File("rule_pipelines_GSD/rel_ou_new1.txt"),
+                new File("rule_pipelines_GSD/relclause_dont_commas_new1.txt"),
+                new File("rule_pipelines_GSD/test_et_1.txt")
 				);
 		corpus = rule.simplify(corpus);
 		return corpus;
@@ -222,6 +221,7 @@ public class Simplifier {
 					aux = word.getSurface();
 					if (firstWord)
 						aux = (""+aux.charAt(0)).toUpperCase() + aux.substring(1,aux.length());
+					firstWord = false;
 					out.write(aux+" ");	
 				}
 				if (!aux.endsWith(".") && !aux.endsWith("?") && !aux.endsWith("!") && !aux.endsWith(":"))

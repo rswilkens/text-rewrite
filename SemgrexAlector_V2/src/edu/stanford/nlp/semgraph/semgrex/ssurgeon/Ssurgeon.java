@@ -648,7 +648,7 @@ public class Ssurgeon {
 			blacklist.add(newWord);
 			
 			for (IndexedWord w : children) {
-				postion = newWord_OldIndex < w.get(index) ? "+0" : "-0";
+				postion = newWord_OldIndex < w.get(index) ? "+0*" : "-0";
 				graph = insert(newWord, w, newGraph, postion, left, true, graph, blacklist);
 			}
 			return graph;

@@ -21,6 +21,28 @@ public class Word implements Comparable<Word>{
 	private SortedSet<Mention> mentions;
 	private boolean allowOperation = true;
 
+	private Word() {}
+	public static Word punct(Sentence s,String id, int parent) {
+		Word w = new Word();
+		w.sentence = s;
+		String[] auxId = id.split("-");
+		w.id = new int[auxId.length];
+		for (int i = 0; i < auxId.length; i++) 
+			w.id[i] = Integer.valueOf(auxId[i]).intValue();	
+		w.surface = ".";
+		w.lemma = ".";
+		w.pos = "PUNCT";
+		w.morphology = "_";
+		w.dep = ""+parent;
+		w.deptag = "punct";
+		
+		w.allowOperation = true;
+		
+		w.UID = nextUID;
+		nextUID++;
+		return w;
+	}
+	
 	public Word(Word w) {
 		id = new int[w.getId().length];
 		for (int i = 0; i < w.getId().length; i++) 

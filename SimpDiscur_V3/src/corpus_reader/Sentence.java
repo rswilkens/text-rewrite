@@ -37,19 +37,24 @@ public class Sentence implements Iterable<Word>{
 		StringBuffer b = new StringBuffer();
 		Word lastWord = null;
 		Word root = null;
+		boolean firstWord = true;
 		for (Word word : words) {
-			b.append(word.toString()).append("\n");
+			b.append(word.toString(firstWord)).append("\n");
+			firstWord = false;
 			lastWord = word;
 			if (word.getDep().equals("0"))
 				root = word;
 		}
-		if (!lastWord.getLemma().equals(".") && !lastWord.getLemma().equals("?") && !lastWord.getLemma().equals("!") && !lastWord.getLemma().equals(":")) {
-			b.append((lastWord.getId()[0]+1) + "	.	.	PUNCT	_	_	" + root.getId()[0] + "	punct	_	_\n");
+		if (!lastWord.getLemma().equals(".") && !lastWord.getLemma().equals("?") && !lastWord.getLemma().equals("!") && !lastWord.getLemma().equals("...") && !lastWord.getLemma().equals(":")) {
+			Word w = Word.punct(this, ""+(lastWord.getId()[0]+1), root.getId()[0]);
+			words.add(w);
+			b.append(w.toString()).append("\n");
+//					(lastWord.getId()[0]+1) + "	.	.	PUNCT	_	_	" + root.getId()[0] + "	punct	_	_\n");
 		}
 		String sent = b.toString().trim();
 //		if (!sent.endsWith(".") && !sent.endsWith("?") && !sent.endsWith("!") && !sent.endsWith(":"))
-			sent += ".";
-		return sent;
+//			sent += ".";
+		return sent+"\n";
 	}
 
 	@Override
