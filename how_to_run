@@ -1,0 +1,14 @@
+1) on Eclipse, create a project for SimpDiscur (java 1.8), copy the src code
+2) on Eclipse, create a project for SemgrexAlector (java 1.8), copy the src code, and link the project to the .jars in the lib folder and the junit.
+3) on Eclipse, create a project for RulesCompiler, copy the src code, and link the project to the java-cup.jar and jflex-full.jar in the lib folder.
+4) add the SemgrexAlector in the required projects of the RulesCompiler project.
+5) add the SemgrexAlector and RulesCompiler in the required projects of the SimpDiscur project.
+6) add the java-cup.jar in the SimpDiscur project
+7) in the Simplifier.java:
+7a) set the syntactic rules in the "rule = new SynSimpUsingExternalFiles" if you want to use transfromation rules from external files.
+7b) set the lexical reosuces in the resources variable
+7c) set the input files in the parsed. Here you put only the parsed files (.conll)
+7d) set the path to the corefcorpus. In case of you aren't using coreference set corefcorpus = null;
+7d1) the file with the coreference information need to contain the information of all files (7c)
+7d2) the link between coreference and conll file is done by using the coreference file. The "#begin document" has to be followed by the name of the file plus "_000". For example, the 07_CE1_litt_orig_mousquetaires.conll file is linked to the coreferences after the line "#begin document ge:07_CE1_litt_orig_mousquetaires.conll_000"
+
