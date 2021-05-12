@@ -28,14 +28,16 @@ public class Simplifier {
 		String[] resources = {//"resources/test" 
 //								"resources/dela-fr-public_mwe.txt", 
 //								"resources/wikitionary_words_mwe",
-//								"resources/simpleAprenent.csv", 
-////				"resources/expressio_vocabulary.txt" 
+////								"resources/simpleAprenent.csv", 
+//////				"resources/expressio_vocabulary.txt" 
 		};
 		String[] parsed = {
 //				"testGSD/clivtest1.conll",
 //				"testGSD/clivtestqui.conll",
 //				"testGSD/dontbasetest.conll",
-				"testSyn/extrait1.conll"
+//				"testSyn/extrait1.conll"
+				"testSyn/158_CM1_sci_orig_chocolat.conll"
+//				"testSyn/test.conll"
 //				"amalia_22Feb/texte2.conll",
 //				"amalia_22Feb/texte3.conll",
 //				"amalia_22Feb/texte4.conll",
@@ -147,16 +149,16 @@ public class Simplifier {
 		//		corpus = rule.simplify(corpus);
 
 		rule = new SynSimpUsingExternalFiles(
-//				new File("rule_pipelines_GSD/cliv_new1.txt"),
 				new File("rule_pipelines_GSD/test_cliv_new2.txt"),
-				new File("rule_pipelines_GSD/regle_et_mieux4.txt"),
                 new File("rule_pipelines_GSD/dont_new1.txt"),
                 new File("rule_pipelines_GSD/participe_new1.txt"),
                 new File("rule_pipelines_GSD/passive_new1.txt"),
-                new File("rule_pipelines_GSD/regle_conj_new1.txt"),
-                new File("rule_pipelines_GSD/rel_ou_new1.txt"),
-                new File("rule_pipelines_GSD/relclause_dont_commas_new1.txt"),
-                new File("rule_pipelines_GSD/test_et_1.txt")
+				new File("rule_pipelines_GSD/regle_et_mieux5.txt"),
+				new File("rule_pipelines_GSD/rel_qui_que_new1.txt"),
+//                new File("rule_pipelines_GSD/regle_conj_new1.txt"),
+//                new File("rule_pipelines_GSD/rel_ou_new1.txt"),
+                new File("rule_pipelines_GSD/relclause_dont_commas_new1.txt")
+//                new File("rule_pipelines_GSD/test_et_1.txt")
 				);
 		corpus = rule.simplify(corpus);
 		return corpus;

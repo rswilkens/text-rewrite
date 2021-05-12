@@ -254,7 +254,8 @@ public class Corpus {
 	public String toString() {
 		StringBuffer ret = new StringBuffer();
 		for (Sentence sentence : sentences) 
-			ret.append(sentence).append("\n");
+			if (sentence.getWords().size()>0)
+				ret.append(sentence).append("\n");
 
 		return ret.toString();
 	}

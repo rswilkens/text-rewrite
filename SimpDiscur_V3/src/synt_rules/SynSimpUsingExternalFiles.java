@@ -108,18 +108,26 @@ public class SynSimpUsingExternalFiles implements SyntacticSimp {
 				run.start();
 				run.join();
 				Map<String, List<Pair<SemanticGraph, List<String>>>> output = pipeline.getOutputCorpora();
-				for (List<Pair<SemanticGraph, List<String>>> sents : output.values()) {
-					save("tmp2." + pipeline.getName() + ".conll",sents);	
+				if (output.size()==0) {
+					System.err.println("\n\n*******************************************bad run at " + pipeline.getName() + "\\n\\n*******************************************");
+//					JOptionPane.showMessageDialog(null, "bad run at " + pipeline.getName());
+					Corpus corpus = new Corpus("tmp1." + pipeline.getName() + ".conll");
+					corpusOri = corpus;
+				}else {
+					for (List<Pair<SemanticGraph, List<String>>> sents : output.values()) {
+						save("tmp2." + pipeline.getName() + ".conll",sents);	
+					}
+					Corpus corpus = new Corpus("tmp2." + pipeline.getName() + ".conll");
+					
+					new File(Simplifier.currentCorpus + "_input." + pipeline.getName() + ".conll").delete();
+					Files.copy(
+							Paths.get("tmp1." + pipeline.getName() + ".conll"), 
+							Paths.get(Simplifier.currentCorpus + "_input." + pipeline.getName() + ".conll"));
+					new File("tmp1." + pipeline.getName() + ".conll").delete();  
+					new File("tmp2.Syn" + pipeline.getName() + ".conll").delete();
+					corpusOri = corpus;	
 				}
-				Corpus corpus = new Corpus("tmp2." + pipeline.getName() + ".conll");
 				
-				new File(Simplifier.currentCorpus + "_input." + pipeline.getName() + ".conll").delete();
-				Files.copy(
-						Paths.get("tmp1." + pipeline.getName() + ".conll"), 
-						Paths.get(Simplifier.currentCorpus + "_input." + pipeline.getName() + ".conll"));
-				new File("tmp1." + pipeline.getName() + ".conll").delete();  
-				new File("tmp2.Syn" + pipeline.getName() + ".conll").delete();
-				corpusOri = corpus;
 			} catch (Exception e) {
 //				e.printStackTrace();
 			}

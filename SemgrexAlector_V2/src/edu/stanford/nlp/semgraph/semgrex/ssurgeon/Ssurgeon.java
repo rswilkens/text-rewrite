@@ -999,8 +999,16 @@ public class Ssurgeon {
 //		}
 
 		public static SemanticGraph makeHardCopy(SemanticGraph graph) {
-
 			Collection<IndexedWord> roots = graph.getRoots();
+			
+			if (!graph.hasChildren(new ArrayList<IndexedWord>(roots).get(0))) {			
+				SemanticGraph newgraph = new SemanticGraph();
+				IndexedWord axuW = makeHardCopy(new ArrayList<IndexedWord>(roots).get(0));
+				newgraph.addVertex(axuW);
+				newgraph.setRoot(axuW);
+				return newgraph;
+			}
+			
 			Set<IndexedWord> allNodes = graph.vertexSet();
 			Set<IndexedWord> allRoots = new HashSet<IndexedWord>(graph.getRoots());
 			

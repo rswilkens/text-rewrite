@@ -38,6 +38,7 @@ public class Sentence implements Iterable<Word>{
 		Word lastWord = null;
 		Word root = null;
 		boolean firstWord = true;
+		System.out.println("**********" + words.size());
 		for (Word word : words) {
 			b.append(word.toString(firstWord)).append("\n");
 			firstWord = false;
@@ -45,7 +46,12 @@ public class Sentence implements Iterable<Word>{
 			if (word.getDep().equals("0"))
 				root = word;
 		}
-		if (!lastWord.getLemma().equals(".") && !lastWord.getLemma().equals("?") && !lastWord.getLemma().equals("!") && !lastWord.getLemma().equals("...") && !lastWord.getLemma().equals(":")) {
+		System.out.println("#############" + lastWord) ;
+		if (!lastWord.getLemma().equals(".") && 
+				!lastWord.getLemma().equals("?") && 
+				!lastWord.getLemma().equals("!") && 
+				!lastWord.getLemma().equals("...") && 
+				!lastWord.getLemma().equals(":")) {
 			Word w = Word.punct(this, ""+(lastWord.getId()[0]+1), root.getId()[0]);
 			words.add(w);
 			b.append(w.toString()).append("\n");

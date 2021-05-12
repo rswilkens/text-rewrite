@@ -64,7 +64,7 @@ public class Insert implements Command {
 			else
 				sent = Ssurgeon.insert(w1, workspaceSent.get(var2), position, left, dep, sent);
 		}
-		
+		if(Pipeline.DEBUG) System.out.println(sent);
 		workspaceSent.put(to, sent);
 		return to;
 
