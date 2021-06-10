@@ -20,14 +20,15 @@ public class Corpus {
 	private List<CorefChain> chains;
 
 	private Corpus() {};
-	public Corpus(String corefparsedcorpus) {
+public Corpus(String corefparsedcorpus) {
 		sentences = new ArrayList<Sentence>();
 		Map<String, List<Mention>> chain = new LinkedHashMap<String, List<Mention>>();
 		int sentId = 0;
+		Sentence auxSent = new Sentence(sentId, this);
 		try (BufferedReader br = new BufferedReader(new FileReader(corefparsedcorpus))){
 			Map<String, Mention> openedMent = new HashMap<String, Mention>();
 			String ln = null;
-			Sentence auxSent = new Sentence(sentId, this);
+			
 			while ((ln = br.readLine()) != null) {
 				if (ln.startsWith("#"));
 				else if (ln.trim().length()==0) {
@@ -90,8 +91,18 @@ public class Corpus {
 			}
 		}catch (IOException e) {
 			e.printStackTrace();
-            Scanner in = new Scanner(System.in);
-            in.nextLine();
+            		Scanner in = new Scanner(System.in);
+            		in.nextLine();
+		}
+		if(auxSent.getWords().size() > 0) {
+			sentences.add(auxSent);
+			for (Word word : auxSent.getWords()) {
+				for (Mention ment : word.getMentions()) {
+					if(!chain.containsKey(ment.getId()))
+						chain.put(ment.getId(), new ArrayList<Mention>());
+					chain.get(ment.getId()).add(ment);
+				}
+			}
 		}
 		chains = new ArrayList<CorefChain>();
 		for (String id : chain.keySet()) {
