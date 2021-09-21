@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.concurrent.ConcurrentSkipListSet;
+import java.util.TreeSet;
 
 import discur_rules.Util;
 import discur_rules.mention_type;
@@ -25,7 +26,8 @@ public class Mention implements Iterable<Word>, Comparable<Mention>{
 
 	public void addWord(Word w) {
 		if(words == null)
-			words = new ConcurrentSkipListSet<Word>();
+			words = new TreeSet<Word>();
+			//words = new ConcurrentSkipListSet<Word>();
 		words.add(w);
 	}
 	public Set<Word> getWords() {
@@ -49,7 +51,8 @@ public class Mention implements Iterable<Word>, Comparable<Mention>{
 	@Override
 	public Iterator<Word> iterator() {
 		if(words == null)
-			words = new ConcurrentSkipListSet<Word>();
+			words = new TreeSet<Word>();
+			//words = new ConcurrentSkipListSet<Word>();
 		return words.iterator();
 	}
 
