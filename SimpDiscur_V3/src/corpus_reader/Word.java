@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.concurrent.ConcurrentSkipListSet;
+import java.util.TreeSet;
 
 public class Word implements Comparable<Word>{
 	private static int nextUID = 0;
@@ -176,12 +177,14 @@ public class Word implements Comparable<Word>{
 
 	public void addMention(Mention m) {
 		if(mentions == null)
-			mentions = new ConcurrentSkipListSet<Mention>();
+			mentions = new TreeSet<Mention>();
+			//mentions = new ConcurrentSkipListSet<Mention>();
 		mentions.add(m);
 	}
 	public SortedSet<Mention> getMentions() {
 		if(mentions == null)
-			mentions = new ConcurrentSkipListSet<Mention>();
+			mentions = new TreeSet<Mention>();
+			//mentions = new ConcurrentSkipListSet<Mention>();
 		return mentions;
 	}
 
@@ -236,14 +239,16 @@ public class Word implements Comparable<Word>{
 
 	public void removeMention(Mention old_mention) {
 		if(mentions == null)
-			mentions = new ConcurrentSkipListSet<Mention>();
+			mentions = new TreeSet<Mention>();
+			//mentions = new ConcurrentSkipListSet<Mention>();
 		else
 			mentions.remove(old_mention);
 	}
 
 	public void clearMentions() {
 		if(mentions == null)
-			mentions = new ConcurrentSkipListSet<Mention>();
+			mentions = new TreeSet<Mention>();
+			//mentions = new ConcurrentSkipListSet<Mention>();
 		else
 			mentions.clear();
 
