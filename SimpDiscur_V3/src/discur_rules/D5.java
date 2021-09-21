@@ -78,7 +78,7 @@ public class D5 implements DiscourseSimp {
 		Word w = new Word(word);
 		//					if(w.getPos().equals("DET") && w.getMorphology().contains("Poss=Yes"))
 		//							w.setSurface(Util.transformPossIntoDefArt(w.getSurface()));
-		if(w.getPos().equals("DET") && w.getMorphology().contains("Poss=Yes"))
+		if(w.getPos().equals("DET") && w.getMorphology().contains("Poss")) 
 			w.setSurface(Util.transformPossIntoDefArt(w.getSurface()));
 		if(DiscourseSimp.showTrace())
 			w.setSurface("++D5++" + w.getSurface());
@@ -98,7 +98,7 @@ public class D5 implements DiscourseSimp {
 				Word w0 = new ArrayList<Word>(mention.getWords()).get(0);
 				if(mention.getWords().size()>=2 &&
 						w0.getPos().equals("DET") &&
-						w0.getMorphology().contains("Poss=Yes")) 
+						w0.getMorphology().contains("Poss")) 
 					if(mention.getEntity().size()>=1)
 						if(!mention.precessed())
 							ret.add(mention);
