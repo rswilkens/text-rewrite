@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.concurrent.ConcurrentSkipListSet;
+import java.util.TreeSet;
 
 import discur_rules.mention_type;
 
@@ -15,7 +16,8 @@ public class CorefChain implements Iterable<Mention>{
 	private int id;
 
 	public CorefChain(int id) {
-		chain = new ConcurrentSkipListSet<Mention>();
+		chain = new TreeSet<Mention>();
+		//chain = new ConcurrentSkipListSet<Mention>();
 		this.id = id;
 	}
 
@@ -45,7 +47,8 @@ public class CorefChain implements Iterable<Mention>{
 	//	}
 	public Set<Mention> getEntity() {
 		if (allEntities == null) {
-			allEntities = new ConcurrentSkipListSet<Mention>();
+			allEntities = new TreeSet<Mention>();
+			//allEntities = new ConcurrentSkipListSet<Mention>();
 			for (Mention mention : chain) {
 				mention_type type = mention.getType();
 				if(type!=null)
