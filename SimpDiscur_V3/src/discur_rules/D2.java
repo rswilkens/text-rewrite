@@ -86,8 +86,8 @@ public class D2 implements DiscourseSimp {
 			else newsurface = "le"; 
 			break;
 		case "ces": 
-			if(firstOfChain) newsurface = "un"; 
-			else newsurface = "le"; 
+			if(firstOfChain) newsurface = "des"; 
+			else newsurface = "les"; 
 			break;
 		case "cette": 
 			if(firstOfChain) newsurface = "une"; 
@@ -158,11 +158,20 @@ public class D2 implements DiscourseSimp {
 		List<Mention> ret = new ArrayList<Mention>();
 		for (CorefChain chain : corpus.getChains()) {
 			for (Mention mention : chain) {
+				boolean isDET = false;
+				boolean isPROPN = false;
 				Word w0 = new ArrayList<Word>(mention.getWords()).get(0);
 				if(mention.getWords().size()>1 &&
 						w0.getPos().equals("DET") &&
-						!w0.getMorphology().contains("Poss=Yes")) //Poss=Yes is processed on D5
-					if(!mention.precessed())
+						!w0.getMorphology().contains("Poss")) //Poss is processed on D5
+					for (Word word : mention.getWords()) {
+						if (word.getPos().equals("DET"))
+							isDET = true;
+						if (word.getPos().equals("PROPN"))
+							isPROPN = true;
+					}
+					
+					if(!mention.precessed() && (!(isDET && isPROPN)))
 						ret.add(mention);
 			}
 		}
